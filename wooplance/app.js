@@ -1,14 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const db = require('./database/models')
+const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var gigRouter = require('./routes/gigs');
 
-var app = express();
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const gigRouter = require('./routes/gigs');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,6 +22,41 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//SESSION
+app.use(session({
+  secret: "wooplance page",
+  resave: false,
+  saveUninitialized: true
+}));
+
+//COOKIES
+app.use(function(req, res, next) {
+  if(req.cookies.userId && !req.session.user) {
+    db.User.findByPk(req.cookies.userId).then(results => {
+      req.session.user =results;
+      return next();
+    });
+  } else {
+  	return next();
+  }}
+);
+
+//LOCALS
+app.use(function(req, res, next) {
+  if(req.session.user){
+    res.locals = {
+      log: true,
+      myUser: req.session.user,
+    }
+  } else {
+    res.locals = {
+      log: false
+    }
+  }
+
+	return next();
+});
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);

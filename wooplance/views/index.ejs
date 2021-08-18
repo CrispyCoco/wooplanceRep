@@ -12,7 +12,11 @@
         <div id="fondo_negro"></div>
 
         <!-- Header -->
-        <%- include('./partials/header') %>
+        <% if (!log) { %>
+            <%- include('./partials/header') %>
+        <% } else {%>
+            <%- include('./partials/headerDeslogueado') %>
+        <% } %>
 
         <!-- Header -->
 

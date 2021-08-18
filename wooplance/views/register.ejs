@@ -12,7 +12,8 @@
 
         <!-- Formulario de Registro -->
         <div class="form">
-            <form class="input-sign" action="/register" method="POST" enctype="multipart/form-data">
+           
+            <form class="input-sign" action="/register" method="POST">
                 <p class="half">
                     <input type="text" placeholder="Nombre/s" name="name" id="nombre" required>
                     <input type="text" placeholder="Apellido/s" name="lastname" id="nombre" required>
@@ -42,7 +43,9 @@
                     <input type="password" placeholder="Confirma contraseña" name="passwordConfirm" id="password"
                         minlength="8" required>
                 </p>
-
+                <% if (error) { %>
+                    <p id="error"><%=error%></p>
+                <% } %>
                 
 
                 <button id="boton" class="register-button" type="submit" name="register-button" id="register-button">Registrarme</button>
