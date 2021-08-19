@@ -3,109 +3,128 @@
 
 
 
-.main-nav2{
+.main-nav2 {
     text-align: center;
 }
+
 .main-nav ul li {
 
     list-style-type: none;
-    padding:10px;
+    padding: 10px;
     color: black;
-    
-}
-.main-nav ul{
-    display:flex;
 
 }
-.main-nav{
-    display:none;
+
+.main-nav ul {
+    display: flex;
+
+}
+
+.main-nav {
+    display: none;
 }
 
 
 
 /*---------------------------------------------------------------------*/
 /*----------------------  Botones Header ------------------*/
-.boton-generos{
-    border: white 4px inset;
-    border-radius: 5px 5px 10px 10px;
-    background-color: white;
-}
-.boton-playlist{
-    border: white 4px inset;
-    border-radius: 5px 5px 10px 10px;
-    background-color: white;
-}
-.boton-home{
-    border: white 4px inset;
-    border-radius: 5px 5px 10px 10px;
-    background-color: white;
-}
-.boton-about{
+.boton-generos {
     border: white 4px inset;
     border-radius: 5px 5px 10px 10px;
     background-color: white;
 }
 
-.texto-inicio{
+.boton-playlist {
     border: white 4px inset;
     border-radius: 5px 5px 10px 10px;
-    
+    background-color: white;
 }
-.boton-about:hover{
+
+.boton-home {
+    border: white 4px inset;
+    border-radius: 5px 5px 10px 10px;
+    background-color: white;
+}
+
+.boton-about {
+    border: white 4px inset;
+    border-radius: 5px 5px 10px 10px;
+    background-color: white;
+}
+
+.texto-inicio {
+    border: white 4px inset;
+    border-radius: 5px 5px 10px 10px;
+
+}
+
+.boton-about:hover {
     background-color: grey;
 }
-.boton-home:hover{
-    background-color: darkcyan;  
+
+.boton-home:hover {
+    background-color: darkcyan;
 }
-.boton-playlist:hover{
+
+.boton-playlist:hover {
     background-color: darkmagenta;
 }
-.boton-generos:hover{
+
+.boton-generos:hover {
     background-color: yellow;
 }
-.boton-home:hover a{
+
+.boton-home:hover a {
     color: white;
-    text-decoration-line:none ;
+    text-decoration-line: none;
 }
-.boton-playlist:hover a{
+
+.boton-playlist:hover a {
     color: white;
-    text-decoration-line:none ;
+    text-decoration-line: none;
 }
-.boton-generos:hover a{
+
+.boton-generos:hover a {
     color: black;
-    text-decoration-line:none ;
+    text-decoration-line: none;
 }
-.boton-about:hover a{
+
+.boton-about:hover a {
     color: white;
-    text-decoration-line:none ;
+    text-decoration-line: none;
 }
+
 /*---------------------------------------------------------------------*/
 /*-------------------------Nuevo Header-------------------------*/
 
 
-.main-nav2{
+.main-nav2 {
     display: none;
 }
 
-.logo{
+.logo {
     width: 20px;
 }
-.centrar-objetos{
+
+.centrar-objetos {
     display: flex;
     flex-direction: column;
 }
-.texto-mashup{
+
+.texto-mashup {
     display: none;
 }
+
 /*-------------------------Nuevo Header Celu-------------------------*/
-.logo-titulo{
-    text-decoration-line:underline ;
+.logo-titulo {
+    text-decoration-line: underline;
 }
-.contenedor-header{
-    background-color:#263238;
+
+.contenedor-header {
+    background-color: #263238;
     width: 100%;
     padding: 10px;
-   
+
     border-radius: 15px;
     box-sizing: border-box;
 
@@ -115,184 +134,213 @@
     align-items: center;
     justify-content: space-between;
 }
-.logo-titulo{
+
+.logo-titulo {
     align-items: center;
     justify-content: center;
 }
 
-.logo{
+.logo {
     width: 40px;
     height: 40px;
 }
 
-.boton-principal2{
+.boton-principal2 {
     color: white;
     font-family: 'Raleway', sans-serif;
     font-size: x-large;
     padding: 10px;
-    text-decoration-line:none;
+    text-decoration-line: none;
 }
-.boton-principal2:hover{
-    text-decoration-line:none;
-    color: white;
-}
-.boton-explorar2{
-    color: grey;
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-explorar2:hover{
-    color: white;
-}
-.boton-playlist2{
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    color: grey;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-playlist2:hover{
-    color: white;
-}
-.boton-about2{
-    color: grey;
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-about2:hover{
+
+.boton-principal2:hover {
+    text-decoration-line: none;
     color: white;
 }
 
-.centrar-objetos{
-    display: flex;   
-    
+.boton-explorar2 {
+    color: grey;
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+    padding: 10px;
+    text-decoration-line: none;
+}
 
-    
+.boton-explorar2:hover {
+    color: white;
+}
+
+.boton-playlist2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+    color: grey;
+    padding: 10px;
+    text-decoration-line: none;
+}
+
+.boton-playlist2:hover {
+    color: white;
+}
+
+.boton-about2 {
+    color: grey;
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+    padding: 10px;
+    text-decoration-line: none;
+}
+
+.boton-about2:hover {
+    color: white;
+}
+
+.centrar-objetos {
+    display: flex;
+
+
+
 }
 
 /*-------------------------------HEADER INTENTO-----------------------*/
-    
-    
-.titulo-header{
+
+
+.titulo-header {
     font-family: 'Raleway', sans-serif;
     font-size: xx-large;
     color: white;
-    }
-   
-    .logo-titulo{
-        display: inline-flex;
-    }
-    /*---------------------------------------------------------------------*/
+}
+
+.logo-titulo {
+    display: inline-flex;
+}
+
+/*---------------------------------------------------------------------*/
 
 /*------------------------Detalle Cancion Celu----------------------*/
 
-.fila1{
-    display:flex ;
-    flex-direction: column;   
+.fila1 {
+    display: flex;
+    flex-direction: column;
     border-radius: 15px;
     margin-bottom: 10px;
-    
+
 }
-.columna1 img{
+
+.columna1 img {
     border-radius: 15px;
     width: 100%;
-    margin-top:20px ;
+    margin-top: 20px;
 }
-.columna3 img{
+
+.columna3 img {
     border-radius: 15px;
-    width: 80%;    
+    width: 80%;
 }
-.columna2{
+
+.columna2 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
 }
-.columna3{
+
+.columna3 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
     margin-left: 25%;
 }
-.texto-gris{
+
+.texto-gris {
     color: rgb(179, 167, 167);
     font-size: small;
-    
-}
-.texto-a{
- color: gray;  
 
 }
-.texto-a:hover{
-    text-decoration-line:underline ;
+
+.texto-a {
+    color: gray;
 
 }
-.acciones{
+
+.texto-a:hover {
+    text-decoration-line: underline;
+
+}
+
+.acciones {
     margin-left: -40px;
     text-align: center;
 }
-.mix{
+
+.mix {
     padding: 10px;
-    list-style-type: none ;
-    border: white 2px ;
-    
-}
-.añadir{
-    color: white;
-    background-color:#02085e ;
-    border-radius: 5px;
-    padding: 10px;
-    list-style-type: none ;
+    list-style-type: none;
+    border: white 2px;
+
 }
 
-.fila2{
+.añadir {
+    color: white;
+    background-color: #02085e;
+    border-radius: 5px;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.fila2 {
     font-family: 'Raleway', sans-serif;
-    
+
     border-radius: 15px;
-    
+
     text-align: center;
 }
 
-.fila3{
+.fila3 {
     border-radius: 15px;
     padding: 5px;
     text-align: center;
 
 }
-.contenedor-imagen img{
+
+.contenedor-imagen img {
     width: 100%;
 }
-.contendor-imagen a{
+
+.contendor-imagen a {
     border-radius: 15px;
     background-color: white;
-    color:black;
+    color: black;
     width: 100%;
-    
+
 }
-.texto-album{
+
+.texto-album {
     font-family: 'Raleway', sans-serif;
-    color: rgb(37, 37, 37);
-   
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.822);
+    padding: 5px;
+
 }
-.texto-album:hover{
-    text-decoration-line:underline ;
+
+.texto-album:hover {
+    text-decoration-line: underline;
 }
-.texto-canciones{
+
+.texto-canciones {
     text-align: center;
     font-family: 'Raleway', sans-serif;
 }
-.imagen-d-none{
+
+.imagen-d-none {
     display: none;
 }
-.links{
+
+.links {
     display: flex;
     flex-direction: column;
 }
+
 /*---------------------------------------------------------------------*/
 /*----------------------------------Playlist Celu------------------------*/
 
@@ -306,57 +354,63 @@
     margin-bottom: 20px;
 
     padding: 10px;
-} 
+}
+
 .song {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
     text-align: center;
-    border-style: solid; 
+    border-style: solid;
     border-color: rgb(56, 54, 54);
     border-width: thin;
 
 }
-.audios{
-    width:100%;
+
+.audios {
+    width: 100%;
 
 }
-.d-none{
+
+.d-none {
     display: none;
 }
-.song:hover{
+
+.song:hover {
     background-color: rgba(128, 128, 128, 0.664);
     color: greenyellow;
 
 }
+
 .song-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     justify-content: space-around;
-    border-style: solid; 
-    border-color:rgb(56, 54, 54);
+    border-style: solid;
+    border-color: rgb(56, 54, 54);
     border-width: thin;
 }
 
-.songArtista{
+.songArtista {
     display: flex;
     align-items: center;
-    text-decoration-line:none ;
+    text-decoration-line: none;
     text-align: center;
     padding-left: 5px;
     text-transform: uppercase;
 }
 
 /*----------------------------------Footer------------------------*/
-#logo-deezer{
+#logo-deezer {
     width: 20%;
     height: 60%;
     display: inline-block;
     margin-left: 10px;
 }
-.footer{
-    display:flex;
+
+.footer {
+    display: flex;
     flex-direction: row;
     background-color: black;
     position: absolute;
@@ -369,244 +423,289 @@
 
 /*----------------------------------Computadora------------------------*/
 
-@media(min-width:768px){
-    
-.header{
-    display: flex;
-    flex-direction: row;
-}
-.main-nav ul li{
-    display:inline-flex ;
-    list-style-type: none;
-    padding:6px;
-    color: black;
-    flex-direction: row;
-    justify-content:flex-end;
-}
-.main-nav{
-    display: block;
-}
-.main-nav2{
-    display: none;
-}
-.ul-margin{
-    margin-top: none;
-}
+@media(min-width:768px) {
 
-
-.texto-inicio{
-    display:inline-flex;
-    justify-content: flex-end;
-}
-
-/*---------------------------------------------------------------------*/
-/*-----------------Header-toggle---------------------------------*/
-.toggle-menu{
-    display: none;
-}
-
-.texto-mashup{
-    display: none;
-}
-/*---------------------------------------------------------------------*/
-/*-------------------------Nuevo Header-------------------------*/
-.titulo-none{
-    display: none;
-}
-.contenedor-header{
-    width: 100%;
-    padding: 10px;
-   
-    border-radius: 15px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-
-
-.boton-principal2{
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    padding: 10px;
-    text-decoration-line:none;
-}
-.boton-principal2:hover{
-    text-decoration-line:none;
-    color: white;
-}
-.boton-explorar2{
-    color: grey;
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-explorar2:hover{
-    color: white;
-}
-.boton-playlist2{
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    color: grey;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-playlist2:hover{
-    color: white;
-}
-.boton-about2{
-    color: grey;
-    font-family: 'Raleway', sans-serif;
-    font-size: x-large;
-    padding: 10px;
-    text-decoration-line:none ;
-}
-.boton-about2:hover{
-    color: white;
-}
-
-.centrar-objetos{
-    display: flex;   
-    flex-direction:row ;    
-
-    
-}
-
-/*-------------------------------HEADER INTENTO-----------------------*/
-    
-    
-.titulo-header{
-    font-family: 'Raleway', sans-serif;
-    font-size: xx-large;
-    color: white;
+    .header {
+        display: flex;
+        flex-direction: row;
     }
-   
-    .logo-titulo{
+
+    .main-nav ul li {
+        display: inline-flex;
+        list-style-type: none;
+        padding: 6px;
+        color: black;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .main-nav2 {
+        display: none;
+    }
+
+    .ul-margin {
+        margin-top: none;
+    }
+
+
+    .texto-inicio {
+        display: inline-flex;
+        justify-content: flex-end;
+    }
+
+    /*---------------------------------------------------------------------*/
+    /*-----------------Header-toggle---------------------------------*/
+    .toggle-menu {
+        display: none;
+    }
+
+    .texto-mashup {
+        display: none;
+    }
+
+    /*---------------------------------------------------------------------*/
+    /*-------------------------Nuevo Header-------------------------*/
+    .titulo-none {
+        display: none;
+    }
+
+    .contenedor-header {
+        width: 100%;
+        padding: 10px;
+
+        border-radius: 15px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+
+
+    .boton-principal2 {
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: x-large;
+        padding: 10px;
+        text-decoration-line: none;
+    }
+
+    .boton-principal2:hover {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    .boton-explorar2 {
+        color: grey;
+        font-family: 'Raleway', sans-serif;
+        font-size: x-large;
+        padding: 10px;
+        text-decoration-line: none;
+    }
+
+    .boton-explorar2:hover {
+        color: white;
+    }
+
+    .boton-playlist2 {
+        font-family: 'Raleway', sans-serif;
+        font-size: x-large;
+        color: grey;
+        padding: 10px;
+        text-decoration-line: none;
+    }
+
+    .boton-playlist2:hover {
+        color: white;
+    }
+
+    .boton-about2 {
+        color: grey;
+        font-family: 'Raleway', sans-serif;
+        font-size: x-large;
+        padding: 10px;
+        text-decoration-line: none;
+    }
+
+    .boton-about2:hover {
+        color: white;
+    }
+
+    .centrar-objetos {
+        display: flex;
+        flex-direction: row;
+
+
+    }
+
+    /*-------------------------------HEADER INTENTO-----------------------*/
+
+
+    .titulo-header {
+        font-family: 'Raleway', sans-serif;
+        font-size: xx-large;
+        color: white;
+    }
+
+    .logo-titulo {
         display: inline-flex;
     }
+
     /*---------------------------------------------------------------------*/
     /*------------------------Contenedor Total--------------------------------*/
-.contenedor{
-    margin-right: 90px;
-    margin-left: 90px;
-}
-/*---------------------------------------------------------------------*/
-/*------------------------Detalle Cancion Compu----------------------*/
+    .contenedor {
+        margin-right: 90px;
+        margin-left: 90px;
+    }
 
-.fila1{
-    display: flex;
-    flex-direction: row;
-}
-.columna1 img{
-    width:20em;
-}
-.columna3 img{
-    width:20em;
-}
-.columna2{
-    padding-left:20px;
-    text-align: left;
-}
-.columna2 h2{
-    font-size: 50px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-.columna3{
-    padding-left:20px;
-    text-align: left;
-}
-.columna3 h2{
-    font-size: 50px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-.acciones{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-left: -40px;
-}
-.añadir:hover{
-    opacity: 60%;
-}
-.fila2{
-    text-align: center;
-}
-.fila3{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    text-align: center;
-}
-.contenedor-imagen{
-    background-color: white;
-    border-radius: 15px;
-    margin: 15px;
-    color: black;
-}
-.contenedor-imagen img{
-    width: 100%;
-}
-.imagen-d-none{
-    display: block;
-}
-.contenedor-imagen img:hover{
-    opacity: 50%;
-}
-/*---------------------------------------------------------------------*/
-/*----------------------------Playlist COmpu---------------------------*/
-.song{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.song-info{
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr ;
-}
-.d-none{
-    display: block;
-    padding-left: 50px;
-    
-}
-.audios{
-    padding-left: 10px;
-}
-.songArtista{
-    display: flex;
-    align-items: center;
-    text-decoration-line:none ;
-    color: white;
-    text-align: center;
-    padding-left: 50px;
-}
-.songArtista:hover{
-    text-decoration-line:underline;
-    color: greenyellow;
-}
-/*---------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------*/
+    /*------------------------Detalle Cancion Compu----------------------*/
+
+    .fila1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .columna1 img {
+        width: 20em;
+    }
+
+    .columna3 img {
+        border-radius: 50%;
+    }
+
+    .columna2 {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .columna2 h2 {
+        font-size: 50px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .columna3 {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .columna3 h2 {
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .acciones {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-left: -40px;
+    }
+
+    .añadir:hover {
+        opacity: 60%;
+    }
+
+    .fila2 {
+        text-align: center;
+    }
+
+    .fila3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+    }
+
+    .contenedor-imagen {
+        background-color: white;
+        border-radius: 15px;
+        margin: 15px;
+        color: black;
+    }
+
+    .contenedor-imagen img {
+        width: 100%;
+    }
+
+    .imagen-d-none {
+        display: block;
+    }
+
+    .contenedor-imagen img:hover {
+        opacity: 50%;
+    }
+
+    /*---------------------------------------------------------------------*/
+    /*----------------------------Playlist COmpu---------------------------*/
+    .song {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .song-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .d-none {
+        display: block;
+        padding-left: 50px;
+
+    }
+
+    .audios {
+        padding-left: 10px;
+    }
+
+    .songArtista {
+        display: flex;
+        align-items: center;
+        text-decoration-line: none;
+        color: white;
+        text-align: center;
+        padding-left: 50px;
+    }
+
+    .songArtista:hover {
+        text-decoration-line: underline;
+        color: greenyellow;
+    }
+
+    /*---------------------------------------------------------------------*/
     /*---------------------------------Footer--------------------------*/
-#logo-deezer{
-    width:10%;
-    height:20%;
-}
-/*---------------------------------------------------------------------*/
+    #logo-deezer {
+        width: 10%;
+        height: 20%;
+    }
+
+    /*---------------------------------------------------------------------*/
 }
 
 
-.espacio{
+.espacio {
     margin-top: 6.5rem;
 }
 
-.linkProfile{
+.linkProfile {
     text-decoration-line: none !important;
     padding-top: 5px;
 }
-.linkProfile:hover{
+
+.linkProfile:hover {
     opacity: 80%;
+}
+
+.img-wrap {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height:250px ;
 }
