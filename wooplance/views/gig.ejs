@@ -1,125 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/a0c0bb4f74.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rancho&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="/stylesheets/gig.css" />
-    <link rel="stylesheet" href="/stylesheets/estilos.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet" />
 
-    <title>Detalles</title>
-    <link rel="shortcut icon" href="imagenes/Sello.png" />
-  </head>
-  <body>
-    <%- include('./partials/header') %>
-    <div class="espacio"></div>
-    <div class="contenedor">
-      <div class="fila1">
-        <div class="columna1">
-          <img
-            class="imagen-cancion"
-            src="/recursos/imagenes/gig.png"
-            alt="Imagen de Cancion"
-          />
-        </div>
-        <div class="columna2">
-          <h3 class="texto-gris">Desarrollo Web</h3>
-          <h2>Web Design</h2>
-          <div class="links">
-            <a class="texto-gris"></a>
-          </div>
-          <ul class="acciones">
-            <li class="añadir">Contact</li>
-          </ul>
-        </div>
-        <div class="columna3">
-          <img
-            class="imagen-cancion"
-            src="/recursos/imagenes/persona 3.png"
-            alt="Imagen de Cancion"
-          />
-          <a href="/profile" class="linkProfile">
-            <h2>Milton Kienigiel</h2>
-          </a>
-          <div class="links">
-            <a class="texto-gris"></a>
-          </div>
-          <ul class="acciones">
-            <li class="mix">Rating: *****</li>
-          </ul>
-        </div>
+  <link rel="stylesheet" href="/stylesheets/gig.css" />
+  <link rel="stylesheet" href="/stylesheets/estilos.css" />
+
+  <title>Detalles</title>
+  <link rel="shortcut icon" href="imagenes/Sello.png" />
+</head>
+
+<body>
+  <%- include('./partials/header') %>
+  <div class="espacio"></div>
+  <div class="contenedor">
+    <div class="fila1">
+      <div class="columna1">
+        <img class="imagen-cancion" src="/recursos/imagenes/gig.png" alt="Imagen de Cancion" />
       </div>
-
-      <div class="fila2"><h2>Trabajos Anteriores</h2></div>
-      <div class="fila3">
-        <div class="contenedor-imagen">
-          <a
-            ><img
-              src="/recursos/imagenes/fraganciasCannon.png"
-              alt="Imagen de album"
-          /></a>
-          <h3 class="texto-album">Web Fragancias Cannon</h3>
+      <div class="columna2">
+        <h3 class="texto-gris">Desarrollo Web</h3>
+        <h2>Web Design</h2>
+        <div class="links">
+          <a class="texto-gris"></a>
         </div>
-        <div class="contenedor-imagen">
-          <a
-            ><img
-              src="/recursos/imagenes/galeriasPacifico.png"
-              alt="Imagen de album"
-          /></a>
-          <h3 class="texto-album">Web Galerias Pacifico</h3>
+        <ul class="acciones">
+          <li class="añadir">Contact</li>
+        </ul>
+      </div>
+      <div class="columna3">
+        <img class="imagen-cancion" src="/recursos/imagenes/persona 3.png" alt="Imagen de Cancion" />
+        <a href="/profile" class="linkProfile">
+          <h2>Milton Kienigiel</h2>
+        </a>
+        <div class="links">
+          <a class="texto-gris"></a>
         </div>
-        <div class="contenedor-imagen">
-          <a
-            ><img
-              src="/recursos/imagenes/moncarzSeguros.png"
-              alt="Imagen de album"
-          /></a>
-          <h3 class="texto-album">Web Exitosa</h3>
-        </div>
-        <div class="contenedor-imagen">
-          <a><img src="/recursos/imagenes/gig.png" alt="Imagen de album" /></a>
-          <h3 class="texto-album">Web</h3>
-        </div>
-        <div class="contenedor-imagen">
-          <a><img src="/recursos/imagenes/gig.png" alt="Imagen de album" /></a>
-          <h3 class="texto-album">Web Fragancias Cannon</h3>
-        </div>
-        <div class="contenedor-imagen">
-          <a><img src="/recursos/imagenes/gig.png" alt="Imagen de album" /></a>
-          <h3 class="texto-album">Web Galerias Pacifico</h3>
-        </div>
-        <div class="contenedor-imagen">
-          <a><img src="/recursos/imagenes/gig.png" alt="Imagen de album" /></a>
-          <h3 class="texto-album">Web Exitosa</h3>
-        </div>
-        <div class="contenedor-imagen">
-          <a
-            ><img
-              src="/recursos/imagenes/fraganciasCannon.png"
-              alt="Imagen de album"
-          /></a>
-          <h3 class="texto-album">Web</h3>
-        </div>
+        <ul class="acciones">
+          <li class="mix">Rating: *****</li>
+        </ul>
       </div>
     </div>
 
-    <script src="js/dashoard.js"></script>
-    <script src="js/detalles-tracks.js"></script>
-  </body>
+    <div class="fila2">
+      <h2>Trabajos Anteriores</h2>
+    </div>
+    <div class="fila3">
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+     
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      <div class="contenedor-imagen img-wrap" style="background-image: url(/recursos/imagenes/fraganciasCannon.png)">
+        <h3 class="texto-album">Web Fragancias Cannon</h3>
+      </div>
+      
+     
+    </div>
+  </div>
+
+  <script src="js/dashoard.js"></script>
+  <script src="js/detalles-tracks.js"></script>
+</body>
+
 </html>

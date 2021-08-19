@@ -2,7 +2,7 @@
 
 const controller = {
     index: (req,res) =>{
-        res.render('gig')
+        res.render('gig2')
     },
     create: (req,res) =>{
         res.render('gig-create')
