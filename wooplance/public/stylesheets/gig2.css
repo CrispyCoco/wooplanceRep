@@ -62,7 +62,9 @@ body{
     margin: 5px;
 }
 
-
+.profile-gig a{
+    text-decoration-line: none;
+}
 .img-profile-gig{
     /* border: solid 2px black; */
     border-radius: 50%;

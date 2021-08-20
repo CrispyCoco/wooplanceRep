@@ -1,0 +1,78 @@
+.espacio {
+    margin-top: 7rem;
+}
+
+.profile-pic{
+    border-radius: 50%;
+    max-height: 250px;
+}
+
+.btn_contratar {
+    background-color: #7100FF;
+
+    border: none;
+    border-radius: 10px;
+    /* background-color: #FF0088; */
+    color: white;
+
+    margin: 0 5px 0 0;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px;
+    transition: .2s;
+    text-align: center;
+}
+
+
+.btn_categories {
+    background-color: #2400a8;
+
+    border: none;
+    border-radius: 15px;
+    /* background-color: #FF0088; */
+    color: white;
+
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px;
+    transition: .2s;
+    text-align: center;
+}
+
+.btn_comments {
+    background-color: #8b76da;
+    width: 10%;
+    border: none;
+    border-radius: 15px;
+    /* background-color: #FF0088; */
+    color: white;
+
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px;
+    transition: .2s;
+    text-align: center;
+}
+
+
+
+.stat-num{
+    color: #7100FF;
+
+}
+.card-list{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.comment-pp{
+    max-height: 20px;
+    border-radius: 50%;
+    padding-right: 15px;
+}
+
+.user-comment{
+    display: flex;
+}
+
