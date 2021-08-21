@@ -5,7 +5,7 @@ const controller = {
         res.render('gig2')
     },
     create: (req,res) =>{
-        res.render('gig-create')
+        res.render('gig-add')
     },
     edit:(req,res) =>{
         res.render('gig-edit')
