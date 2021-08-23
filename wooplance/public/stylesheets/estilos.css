@@ -576,3 +576,21 @@ label {
     bottom: 0;
     margin: auto auto;
 }
+
+.gig-card{
+    max-height: 2   50px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    
+}
+.gig-card img{
+    max-height:120px;   
+}
+.violet-title{
+    color:#7100FF;
+}
+.violet-subtitle{
+    color:#7100FF;
+}
