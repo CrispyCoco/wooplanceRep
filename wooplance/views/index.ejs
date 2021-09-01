@@ -13,9 +13,9 @@
 
         <!-- Header -->
         <% if (!log) { %>
-            <%- include('./partials/header') %>
+        <%- include('./partials/header') %>
         <% } else {%>
-            <%- include('./partials/headerDeslogueado') %>
+        <%- include('./partials/headerDeslogueado') %>
         <% } %>
 
         <!-- Header -->
@@ -105,48 +105,43 @@
 
         <div class="wrapper fondoCasiBlacnco pt-5" id="gigs_vistos">
             <div class="container-fluid">
-                <h2 class="TitulosSecciones">Vistos Recientemente...</h2>
+                <h2 class="TitulosSecciones">Añadidos Recientemente...</h2>
                 <section class="card-list">
+                    <% byDate.forEach(gig => { %>
+
                     <article class="cardGig p-4">
-                        <a href="/gig/show">
+                        <a href="/gig/show/<%= gig.id %> ">
                             <div>
-                                <img src="recursos/imagenes/gig.png"
-                                    style="  border-radius: 15px;" class="img-fluid"></img>
-                                <h2 class="Nombrecard">Desarrollador Web</h2>
-                                <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                    optimizar,
-                                    mejorar o crear tu propia pagina web!</p>
+                                <img src="<%= gig.cover %> " style="  border-radius: 15px;"
+                                    class="img-fluid"></img>
+                                <h2 class="Nombrecard"><%= gig.gig %> </h2>
+                                <p class="Textocard"><%= gig.description %> </p>
                             </div>
                         </a>
                     </article>
-                </section>
 
+                    <% }) %>
+                </section>
             </div>
         </div>
         <div class="wrapper fondoCasiBlacnco pt-5" id="categorias_populares">
             <div class="container-fluid">
-                <h2 class="TitulosSecciones">Categorias Populares</h2>
+                <h2 class="TitulosSecciones">Publicaciones Mejor Puntuadas</h2>
                 <section class="card-list">
-                    <article class="card px-5">
-                        <div>
-                            <img src="recursos/imagenes/illustracion_desarrollo web.svg"
-                                style=" margin-top: 30px; " class="img-fluid"></img>
-                            <h2 class="Nombrecard">Desarrollador Web</h2>
-                            <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                optimizar,
-                                mejorar o crear tu propia pagina web!</p>
-                        </div>
-                    </article>
-                    <article class="card px-5">
-                        <div>
-                            <img src="recursos/imagenes/illustracion_desarrollo web.svg"
-                                style=" margin-top: 30px; " class="img-fluid"></img>
-                            <h2 class="Nombrecard">Desarrollador Web</h2>
-                            <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                optimizar,
-                                mejorar o crear tu propia pagina web!</p>
-                        </div>
-                    </article>
+                    <% byRating.forEach(gig => { %>
+
+                        <article class="cardGig p-4">
+                            <a href="/gig/show/<%= gig.id %> ">
+                                <div>
+                                    <img src="<%= gig.cover %> " style="  border-radius: 15px;"
+                                        class="img-fluid"></img>
+                                    <h2 class="Nombrecard"><%= gig.gig %> </h2>
+                                    <p class="Textocard"><%= gig.description %> </p>
+                                </div>
+                            </a>
+                        </article>
+
+                    <% }) %>
                 </section>
             </div>
         </div>
@@ -176,16 +171,16 @@
             </div>
         </div>
 
-        <div  class="container-fluid pt-5 mx-auto">
+        <div class="container-fluid pt-5 mx-auto">
             <div class="row">
-                <div  style="padding: 30px;" class="col-6">
+                <div style="padding: 30px;" class="col-6">
                     <h2 class="contactar">Contactanos</h2>
                     <p class="descContacto">¿Tienes alguna duda sobre nuestro servicio, o te gustaría aportar con una
                         sugerencia?, envianos un mail o contactanos por nuestras redes sociales.</p>
-                        <div class="grupo_busqueda">
-                            <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
-                            <button id="btn_buscar"><i class='bx bx-send'></i></button>
-                        </div>
+                    <div class="grupo_busqueda">
+                        <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
+                        <button id="btn_buscar"><i class='bx bx-send'></i></button>
+                    </div>
                 </div>
                 <div class="col-6 logoFooter">
                     <img src="/recursos/imagenes/logo.svg" alt="">

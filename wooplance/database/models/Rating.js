@@ -6,6 +6,9 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             type: dataTypes.INTEGER.UNSIGNED
         },
+        rating: {
+            type: dataTypes.INTEGER,
+        },
         userId: {
             type: dataTypes.INTEGER,
             field: 'user_id'

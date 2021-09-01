@@ -34,6 +34,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             field: 'freelancer_id'
         },
+        rating:{
+            type: dataTypes.DOUBLE,
+        },
         createdAt: {
             type: dataTypes.DATE,
         },

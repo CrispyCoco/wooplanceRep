@@ -27,9 +27,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             field: 'profile_pic'
         },
-        banner:{
-            type: dataTypes.STRING,
-        },
         createdAt: {
             type: dataTypes.DATE,
         },
