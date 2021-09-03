@@ -85,3 +85,6 @@ body{
     display: flex;
     justify-content: space-evenly;
 }
+.ahrefCard{
+    text-decoration-line: none;
+}
