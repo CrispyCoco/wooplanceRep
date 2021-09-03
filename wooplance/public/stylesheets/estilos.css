@@ -98,7 +98,7 @@ body {
 }
 
 #input_buscar {
-    border: rgba(128, 128, 128, 0.397) solid 1px;
+    border: none;
     border-radius: 8px;
     margin: 0 10px 0 10px;
     background-color: transparent;

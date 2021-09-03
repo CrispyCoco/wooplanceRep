@@ -1,7 +1,6 @@
 <header class="cabecera">
   <nav class="nav">
-    <a id="logo" href="#"
-      ><img src="/recursos/imagenes/logo.svg" alt="logo wooplance" />
+    <a id="logo" href="/"><img src="/recursos/imagenes/logo.svg" alt="logo wooplance" />
     </a>
 
     <div class="grupo_buscar">
@@ -9,12 +8,10 @@
         <button id="btn_categorias" class="item_cat">Categorias</button>
       </div>
       <div class="grupo_busqueda">
-        <input
-          id="input_buscar"
-          type="text"
-          placeholder="EJ: 'Web Developer' "
-        />
-        <button id="btn_buscar"><i class="bx bx-search"></i></button>
+        <form action="/search" method="GET">
+          <input id="input_buscar" type="text" name="search" placeholder="EJ: 'Web Developer' " >
+          <button id="btn_buscar" type="submit"><i class="bx bx-search"></i></button>
+        </form>
       </div>
     </div>
 
