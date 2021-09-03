@@ -1,8 +1,19 @@
-
+const db = require("../database/models");
 
 const controller = {
     index: (req,res) =>{
-        res.render('gig2')
+        db.Gig.findByPk(req.params.id,{
+            include:[{
+                association: 'freelancer',
+                include:[{
+                    association: 'postedGigs'
+                }]
+            },{
+                association: 'comments'
+            }]
+        }).then(info => {
+        res.render('gig2',{gig: info})
+        })
     },
     create: (req,res) =>{
         res.render('gig-add')

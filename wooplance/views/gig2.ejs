@@ -43,29 +43,37 @@
         <div id="fondo_negro"></div> -->
 
         <!-- Header -->
-        <%- include('./partials/header') %>
+        <% if (log) { %>
+            <%- include('./partials/header') %>
+        <% } else {%>
+            <%- include('./partials/headerDeslogueado') %>
+            <% } %>
 
         <div class="espacio"></div>
 
         <div class="container text-center pt-5">
             <h2 class="  pt-2">
-                Desarrollo de sitios Web para negocios o blogs
+                <%= gig.gig %> 
             </h2>
             <h3 class="small p-2">
-                Puedo realizar tu sitio web ideal con lenguaje de programacion como PHP, HTML
+                <%= gig.description %> 
             </h3>
         </div>
 
         <div class="container pt-5">
             <div class="row">
                 <div class="col-8">
-                    <img src="/recursos/imagenes/gig.png" alt="">
+                    <img src="<%= gig.cover %> " alt="">
                 </div>
                 <div class="col-4">
                     <div class="description-gig">
                         <div class="price-gig pb-2">
                             <h3 class="small">Desde</h3>
-                            <h2>AR$420</h2>
+                            <h2>AR$<%= gig.priceMin %> </h2>
+                        </div>
+                        <div class="price-gig pb-2">
+                            <h3 class="small">Hasta</h3>
+                            <h2>AR$<%= gig.priceMax %> </h2>
                         </div>
                         <div class="buttons-gig">
                             <a id="btn_chatear">Chatear</a>
@@ -74,10 +82,10 @@
                         <div class="profile-gig pt-5 pb-2 mx-auto">
                             <div class="row data-profile-gig">
                                 <div class="col-2 img-profile-gig"><img class="img-fluid"
-                                        src="/recursos/imagenes/persona.png" alt=""></div>
+                                        src="<%= gig.freelancer.profilePic %> " alt=""></div>
                                 <div class="col-10 ">
-                                    <a href="/profile/id">
-                                        <h3>Milton Kienigiel</h3>
+                                    <a href="/profile/id/<%= gig.freelancer.id %> ">
+                                        <h4><%= gig.freelancer.name %> <%= gig.freelancer.lastName %> </h4>
                                     </a>
                                 </div>
                             </div>
@@ -85,17 +93,10 @@
                         </div>
                         <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
                         <div class="small-desc-gig">
-                            Soy un diseñador gráfico experimentado.
-
-                            Soy un artista creativo que se enorgullece de crear
-                            diseños de logotipos minimalistas.
-
-                            También ofrezco empaque de productos, tarjetas de
-                            presentación, folletos, diseño de banners y muchos más.
-
-                            Como diseñador gráfico autodidacta, he trabajado con
-                            muchas pequeñas y medianas empresas y las he ayudado
-                            a crear sus logotipos y otros artículos de papelería.
+                            <h5>Contactos</h5> 
+                            <ul>
+                                <li><strong>Email:</strong> <a href="mailto:<%= gig.freelancer.email %> "><%= gig.freelancer.email %></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -110,62 +111,24 @@
             </div>
 
             <div class="details-gig text-left pt-5">
-                <div>Lo que puede esperar en $ 100 (prima)</div>
-                <div>✔ 5 conceptos con creatividad y singularidad</div>
-                <div>✔ Soporte prioritario excepcional</div>
-                <div>✔ 110% de satisfacción</div>
-                <div>✔ Revisiones ilimitadas</div>
-                <div>✔ JPG y PNG</div>
-                <div>✔ vector / fuente en .Ai, .EPS, .SVG</div>
-                <div>✔ .PDF imprimible</div>
-                <div>✔ Propiedad total del logotipo final</div>
-                <br>
-                <div>Lo que obtendrá en $ 80 (estándar)</div>
-                <div>✔ 3 conceptos con creatividad y singularidad</div>
-                <div>✔ 110% de satisfacción</div>
-                <div>✔ Revisiones ilimitadas</div>
-                <div>✔ JPG y PNG</div>
-                <div>✔ vector / fuente en .Ai, .EPS, .SVG</div>
-                <div>✔ Propiedad total del logotipo final</div>
+                <%= gig.specs %> 
 
             </div>
         </div>
         <div class="container pt-5">
-            <h2 class="TitulosSecciones">Otros Trabajos de Milton Kienigiel</h2>
+            <h2 class="TitulosSecciones">Otros Trabajos de <%= gig.freelancer.name %> <%= gig.freelancer.lastName %> </h2>
             <section class="card-list">
-                <article class="cardGig p-4">
-                    <a href="/gig/show">
-                        <div>
-                            <img src="/recursos/imagenes/gig.png" style="  border-radius: 15px;" class="img-fluid"></img>
-                            <h2 class="Nombrecard">Desarrollador Web</h2>
-                            <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                optimizar,
-                                mejorar o crear tu propia pagina web!</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="cardGig p-4">
-                    <a href="/gig/show">
-                        <div>
-                            <img src="/recursos/imagenes/gig.png" style="  border-radius: 15px;" class="img-fluid"></img>
-                            <h2 class="Nombrecard">Desarrollador Web</h2>
-                            <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                optimizar,
-                                mejorar o crear tu propia pagina web!</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="cardGig p-4">
-                    <a href="/gig/show">
-                        <div>
-                            <img src="/recursos/imagenes/gig.png" style="  border-radius: 15px;" class="img-fluid"></img>
-                            <h2 class="Nombrecard">Desarrollador Web</h2>
-                            <p class="Textocard">Encuentra a especialistas en desarrollo web! Con ellos podras
-                                optimizar,
-                                mejorar o crear tu propia pagina web!</p>
-                        </div>
-                    </a>
-                </article>
+                <% gig.freelancer.postedGigs.forEach(element => { %>
+                    <article class="cardGig p-4">
+                        <a href="/gig/show/<%= element.id %> ">
+                            <div>
+                                <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
+                                <h2 class="Nombrecard"><%= element.gig %> </h2>
+                                <p class="Textocard"><%= element.description %> </p>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>
             </section>
 
         </div>
