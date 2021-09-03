@@ -85,6 +85,3 @@ body{
     display: flex;
     justify-content: space-evenly;
 }
-.tags-gigs div{
-    text-decoration-line: underline;
-}
