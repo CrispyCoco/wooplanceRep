@@ -1,21 +1,28 @@
 <header class="cabecera">
-    <nav class="nav">
-        <a id="logo" href="#"><img src="/recursos/imagenes/logo.svg" alt="logo wooplance"> </a>
+  <nav class="nav">
+    <a id="logo" href="#"
+      ><img src="/recursos/imagenes/logo.svg" alt="logo wooplance" />
+    </a>
 
-        <div class="grupo_buscar">
-            <div class="grupo_categorias">
-                <button id="btn_categorias" class="item_cat">Categorias</button>
-            </div>
-            <div class="grupo_busqueda">
-                <input id="input_buscar" type="text" placeholder="EJ: 'Web Developer' ">
-                <button id="btn_buscar"><i class='bx bx-search'></i></button>
-            </div>
-        </div>
+    <div class="grupo_buscar">
+      <div class="grupo_categorias">
+        <button id="btn_categorias" class="item_cat">Categorias</button>
+      </div>
+      <div class="grupo_busqueda">
+        <input
+          id="input_buscar"
+          type="text"
+          placeholder="EJ: 'Web Developer' "
+        />
+        <button id="btn_buscar"><i class="bx bx-search"></i></button>
+      </div>
+    </div>
 
-        <div class="grupo_entrar">
-            <button id="btn_iniciarsesion">Iniciar Sesión</button>
-            <button id="btn_registrarse" onclick="openRegisterForm()">Registrarse</button>
-        </div>
-
-    </nav>
+    <div class="grupo_entrar">
+      <a href="/login" id="btn_iniciarsesion">Iniciar Sesión</a>
+      <a href="/register" id="btn_registrarse" onclick="openRegisterForm()">
+        Registrarse
+      </a>
+    </div>
+  </nav>
 </header>
