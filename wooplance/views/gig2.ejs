@@ -82,16 +82,16 @@
                         <div class="profile-gig pt-5 pb-2 mx-auto">
                             <div class="row data-profile-gig">
                                 <div class="col-2 img-profile-gig"><img class="img-fluid"
-                                        src="<%= gig.freelancer.profilePic %> " alt=""></div>
-                                <div class="col-10 ">
-                                    <a href="/profile/id/<%= gig.freelancer.id %> ">
-                                        <h4><%= gig.freelancer.name %> <%= gig.freelancer.lastName %> </h4>
-                                    </a>
+                                    src="<%= gig.freelancer.profilePic %> " alt=""></div>
+                                    <div class="col-10 ">
+                                        <a href="/profile/id/<%= gig.freelancer.id %> ">
+                                            <h4><%= gig.freelancer.name %> <%= gig.freelancer.lastName %> </h4>
+                                        </a>
+                                    </div>
                                 </div>
+                                
                             </div>
-
-                        </div>
-                        <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
+                            <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
                         <div class="small-desc-gig">
                             <h5>Contactos</h5> 
                             <ul>
@@ -119,15 +119,17 @@
             <h2 class="TitulosSecciones">Otros Trabajos de <%= gig.freelancer.name %> <%= gig.freelancer.lastName %> </h2>
             <section class="card-list">
                 <% gig.freelancer.postedGigs.forEach(element => { %>
-                    <article class="cardGig p-4">
-                        <a href="/gig/show/<%= element.id %> " class="ahrefCard">
-                            <div>
-                                <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
-                                <h2 class="Nombrecard"><%= element.gig %> </h2>
-                                <p class="Textocard"><%= element.description %> </p>
-                            </div>
-                        </a>
-                    </article>
+                    <% if (element.id != gig.id) { %>
+                        <article class="cardGig p-4">
+                            <a href="/gig/show/<%= element.id %> " class="ahrefCard">
+                                <div>
+                                    <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
+                                    <h2 class="Nombrecard"><%= element.gig %> </h2>
+                                    <p class="Textocard"><%= element.description %> </p>
+                                </div>
+                            </a>
+                        </article>
+                    <% } %>
                 <% }) %>
             </section>
 
