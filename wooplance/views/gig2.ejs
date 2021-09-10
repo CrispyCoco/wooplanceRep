@@ -129,13 +129,15 @@
                                 </div>
                                 
                             </div>
-                            <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
-                        <div class="small-desc-gig">
-                            <h5>Contactos</h5> 
-                            <ul>
-                                <li><strong>Email:</strong> <a href="mailto:<%= gig.freelancer.email %> "><%= gig.freelancer.email %></a></li>
-                            </ul>
-                        </div>
+                            <% if (log) { %>
+                                <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
+                            <div class="small-desc-gig">
+                                <h5>Contactos</h5> 
+                                <ul>
+                                    <li><strong>Email:</strong> <a href="mailto:<%= gig.freelancer.email %>"><%= gig.freelancer.email %></a></li>
+                                </ul>
+                            </div>
+                            <% } %>
                     </div>
                 </div>
             </div>

@@ -8,13 +8,17 @@
       <div class="grupo_categorias">
         <button id="btn_categorias" class="item_cat">Categorias</button>
       </div>
-      <input id="input_buscar" type="text" placeholder="EJ: 'Web Developer' " />
-      <button id="btn_buscar">Buscar</button>
+      <div class="grupo_busqueda">
+        <form action="/search" method="GET">
+          <input id="input_buscar" type="text" name="search" placeholder="EJ: 'Web Developer' " >
+          <button id="btn_buscar" type="submit"><i class="bx bx-search"></i></button>
+        </form>
+      </div>
     </div>
 
     <div class="grupo_entrar">
       <a id="btn_registrarse" href="/gig/add">Publicar</a>
-      <a href="/profile/0" style="display: inline-flex; color: black">
+      <a href="/profile/id/<%= myUser.id %> " class="profile-link">
         <img
           class="img-fluid"
           style="
@@ -23,10 +27,10 @@
             padding-right: 5px;
             border-radius: 50%;
           "
-          src="/recursos/imagenes/persona 3.png"
+          src="<%= myUser.profilePic%>"
           alt=""
         />
-        <p>Milton Kienigiel</p>
+        <p><%= myUser.name%> <%= myUser.lastName%> </p>
       </a>
     </div>
   </nav>

@@ -4,7 +4,34 @@ const bcrypt = require("bcryptjs");
 
 const controller = {
   index: (req, res) => {
-    res.render("profile");
+    db.User.findByPk(req.params.id, {
+        include: [{
+          association: 'postedGigs'
+        }, {
+          association: 'myGigs'
+        }]
+      })
+      .then((user) => {
+        if (user.myGigs.length != 0) {
+
+          let finishedGigs = 0
+          user.myGigs.forEach(element => {
+            if (element.done) {
+              finishedGigs += 1;
+            }
+          });
+          // res.send(user.myGigs)
+          let percent = (finishedGigs / user.myGigs.length) * 100;
+          res.render("profile", {
+            user: user,
+            doneGigs: percent
+          });
+        }
+        res.render("profile", {
+          user: user,
+          doneGigs: 0
+        });
+      })
   },
   register: (req, res) => {
     res.render("register", {
@@ -12,15 +39,7 @@ const controller = {
     });
   },
   create: (req, res) => {
-    if (
-      !req.body.name ||
-      !req.body.lastname ||
-      !req.body.username ||
-      !req.body.mail ||
-      !req.body.birthday ||
-      !req.body.password ||
-      !req.body.passwordConfirm
-    ) {
+    if (!req.body.name || !req.body.lastName || !req.body.username || !req.body.mail || !req.body.birthday || !req.body.password || !req.body.passwordConfirm) {
       res.render("register", {
         error: "No puede haber campos vacios",
       });
@@ -44,21 +63,38 @@ const controller = {
           error: "Este mail ya esta siendo utilizado",
         });
       }
-      db.User.create({
-        name: req.body.name,
-        lastName: req.body.lastName,
-        username: req.body.username,
-        email: req.body.mail,
-        password: pssd,
-        profilePic: "",
-        banner: "",
-      }).then((user) => {
-        req.session.user = user;
-        res.cookie("userId", user.id, {
-          maxAge: 1000 * 60 * 5,
+      if (req.file) {
+
+        db.User.create({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+          password: pssd,
+          profilePic: "",
+        }).then((user) => {
+          req.session.user = user;
+          res.cookie("userId", user.id, {
+            maxAge: 1000 * 60 * 5,
+          });
+          res.redirect("/");
         });
-        res.redirect("/");
-      });
+      } else {
+        db.User.create({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+          password: pssd,
+          profilePic: "/images/users/default-user.png",
+        }).then((user) => {
+          req.session.user = user;
+          res.cookie("userId", user.id, {
+            maxAge: 1000 * 60 * 5,
+          });
+          res.redirect("/");
+        });
+      }
     });
   },
   login: (req, res) => {

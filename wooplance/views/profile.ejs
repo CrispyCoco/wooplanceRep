@@ -37,7 +37,12 @@
 </head>
 
 <body>
+    <% if (log) { %>
+
     <%- include('./partials/header') %>
+    <% } else {%>
+    <%- include('./partials/headerDeslogueado') %>
+    <% } %>
 
     <div class="espacio"></div>
 
@@ -48,24 +53,23 @@
 
             </div>
             <div class="col-10 text-left">
-                <h2>Milton Kienigiel</h2>
+                <h2><%= user.name %> <%= user.lastName %> </h2>
                 <h3 class="small pt-2">
-                    Descripción: Desarollador Web PHP - Laravel, Bootstrap 4 + JS +
-                    MySql + HTML5
+                    Mail: <a href="mailto:<%= user.email %>"><%= user.email %></a>
                 </h3>
                 <button class="mt-2 btn_contratar">Contratar</button>
                 <div class="row stats-profile text-center pt-5">
                     <div class="stat col-4">
                         <h3>Trabajos Terminados</h3>
-                        <h3 class="stat-num">94%</h3>
+                        <h3 class="stat-num"><%= doneGigs %> %</h3>
                     </div>
                     <div class="stat col-4">
-                        <h3>Trabajos Realizados</h3>
-                        <h3 class="stat-num">103</h3>
+                        <h3>Trabajos Publicados</h3>
+                        <h3 class="stat-num"><%= user.postedGigs.length %> </h3>
                     </div>
                     <div class="stat col-4">
-                        <h3>Comentarios</h3>
-                        <h3 class="stat-num">69</h3>
+                        <h3>Contrataciones</h3>
+                        <h3 class="stat-num"><%= user.myGigs.length %> </h3>
                     </div>
                 </div>
             </div>
@@ -75,50 +79,26 @@
 
     <div class="container pt-5">
         <h2 class="TitulosSecciones">Categorías Principales</h2>
-        <section class="card-list">
-            <article class="cardGig p-4">
-                <a href="/gig/show">
-                    <div>
-                        <img src="/recursos/imagenes/como funciona 2.svg" style="  border-radius: 15px;" class="img-fluid"></img>
-                        <h2 class="Nombrecard">Diseño de paginas web
-                            y Apps</h2>
-                        <p class="Textocard">Encontra a miles de
-                            diseñadores para tu pagina
-                            o aplicación movil</p>
-                        <button class="mt-2 btn_contratar">Ver más</button>
+        <% if (user.postedGigs.length != 0) { %>
+            
+            <section class="card-list">
+                <% user.postedGigs.forEach(element => { %>
+                    <article class="cardGig p-4">
+                        <a href="/gig/show/id/<%= element.id %> ">
+                            <div>
+                                <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
+                                <h2 class="Nombrecard"><%= element.gig %> </h2>
+                                <p class="Textocard"><%= element.description %> </p>
+                                <button class="mt-2 btn_contratar">Ver más</button>
 
-                    </div>
-                </a>
-            </article>
-            <article class="cardGig p-4">
-                <a href="/gig/show">
-                    <div>
-                        <img src="/recursos/imagenes/como funciona_1.svg" style="  border-radius: 15px;" class="img-fluid"></img>
-                        <h2 class="Nombrecard">Diseño de paginas web
-                            y Apps</h2>
-                        <p class="Textocard">Encontra a miles de
-                            diseñadores para tu pagina
-                            o aplicación movil</p>
-                        <button class="mt-2 btn_contratar">Ver más</button>
-
-                    </div>
-                </a>
-            </article>
-            <article class="cardGig p-4">
-                <a href="/gig/show">
-                    <div>
-                        <img src="/recursos/imagenes/como funciona 3.svg" style="  border-radius: 15px;" class="img-fluid"></img>
-                        <h2 class="Nombrecard">Diseño de paginas web
-                            y Apps</h2>
-                        <p class="Textocard">Encontra a miles de
-                            diseñadores para tu pagina
-                            o aplicación movil</p>
-                        <button class="mt-2 btn_contratar">Ver más</button>
-
-                    </div>
-                </a>
-            </article>
-        </section>
+                            </div>
+                        </a>
+                    </article>
+                </section>
+                <% }) %>
+            <% } else {%>
+                <h2>No hay publicaciones hechas por este usuario</h2>
+            <% } %>
 
     </div>
 
@@ -133,7 +113,8 @@
                 <h3 class="small">milton_ki</h3>
             </div>
             <div class="pt-2">
-                <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir trabajando con el en mejoras para el proyecto y mas ideas a futuro."</h4>
+                <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir trabajando
+                    con el en mejoras para el proyecto y mas ideas a futuro."</h4>
             </div>
             <button class="btn_categories">MySql</button>
             <button class="btn_categories">Javascript</button>
@@ -146,7 +127,8 @@
                 <h3 class="small">milton_ki</h3>
             </div>
             <div class="pt-2">
-                <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir trabajando con el en mejoras para el proyecto y mas ideas a futuro."</h4>
+                <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir trabajando
+                    con el en mejoras para el proyecto y mas ideas a futuro."</h4>
             </div>
             <button class="btn_categories">MySql</button>
             <button class="btn_categories">Javascript</button>
@@ -156,14 +138,14 @@
     </div>
     <div style="width: 100%;" class="container-fluid pt-5 mx-auto">
         <div class="row">
-            <div  style="padding: 30px;" class="col-6">
+            <div style="padding: 30px;" class="col-6">
                 <h2 class="contactar">Contactanos</h2>
                 <p class="descContacto">¿Tienes alguna duda sobre nuestro servicio, o te gustaría aportar con una
                     sugerencia?, envianos un mail o contactanos por nuestras redes sociales.</p>
-                    <div class="grupo_busqueda">
-                        <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
-                        <button id="btn_buscar"><i class='bx bx-send'></i></button>
-                    </div>
+                <div class="grupo_busqueda">
+                    <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
+                    <button id="btn_buscar"><i class='bx bx-send'></i></button>
+                </div>
             </div>
             <div class="col-6 logoFooter">
                 <img src="/recursos/imagenes/logo.svg" alt="">
