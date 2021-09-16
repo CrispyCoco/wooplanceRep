@@ -5,33 +5,34 @@ const bcrypt = require("bcryptjs");
 const controller = {
   index: (req, res) => {
     db.User.findByPk(req.params.id, {
-        include: [{
-          association: 'postedGigs'
-        }, {
-          association: 'myGigs'
-        }]
-      })
-      .then((user) => {
-        if (user.myGigs.length != 0) {
-
-          let finishedGigs = 0
-          user.myGigs.forEach(element => {
-            if (element.done) {
-              finishedGigs += 1;
-            }
-          });
-          // res.send(user.myGigs)
-          let percent = (finishedGigs / user.myGigs.length) * 100;
-          res.render("profile", {
-            user: user,
-            doneGigs: percent
-          });
-        }
+      include: [
+        {
+          association: "postedGigs",
+        },
+        {
+          association: "myGigs",
+        },
+      ],
+    }).then((user) => {
+      if (user.myGigs.length != 0) {
+        let finishedGigs = 0;
+        user.myGigs.forEach((element) => {
+          if (element.done) {
+            finishedGigs += 1;
+          }
+        });
+        // res.send(user.myGigs)
+        let percent = (finishedGigs / user.myGigs.length) * 100;
         res.render("profile", {
           user: user,
-          doneGigs: 0
+          doneGigs: percent,
         });
-      })
+      }
+      res.render("profile", {
+        user: user,
+        doneGigs: 0,
+      });
+    });
   },
   register: (req, res) => {
     res.render("register", {
@@ -39,7 +40,15 @@ const controller = {
     });
   },
   create: (req, res) => {
-    if (!req.body.name || !req.body.lastName || !req.body.username || !req.body.mail || !req.body.birthday || !req.body.password || !req.body.passwordConfirm) {
+    if (
+      !req.body.name ||
+      !req.body.lastName ||
+      !req.body.username ||
+      !req.body.mail ||
+      !req.body.birthday ||
+      !req.body.password ||
+      !req.body.passwordConfirm
+    ) {
       res.render("register", {
         error: "No puede haber campos vacios",
       });
@@ -64,7 +73,6 @@ const controller = {
         });
       }
       if (req.file) {
-
         db.User.create({
           name: req.body.name,
           lastName: req.body.lastName,

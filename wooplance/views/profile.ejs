@@ -84,7 +84,7 @@
             <section class="card-list">
                 <% user.postedGigs.forEach(element => { %>
                     <article class="cardGig p-4">
-                        <a href="/gig/show/id/<%= element.id %> ">
+                        <a href="/gig/show/<%= element.id %> ">
                             <div>
                                 <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
                                 <h2 class="Nombrecard"><%= element.gig %> </h2>
@@ -94,8 +94,8 @@
                             </div>
                         </a>
                     </article>
+                    <% }) %>
                 </section>
-                <% }) %>
             <% } else {%>
                 <h2>No hay publicaciones hechas por este usuario</h2>
             <% } %>
