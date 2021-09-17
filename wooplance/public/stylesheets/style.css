@@ -125,6 +125,9 @@ input {
 .form{
   margin-top:30px
 }
+.input-sign{
+  width: 80%;
+}
 .input-sign input{
   width: 100%;
 }
