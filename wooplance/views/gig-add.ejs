@@ -20,10 +20,9 @@
 
                 <p>
                     <select class="form-control" name="category" >
-                        <option selected value="">- Categoria -</option>
-                        <option value="">Desarrollo Web</option>
-                        <option value="">Renders</option>
-                        <option value="">Informatica</option>
+                        <% categories.forEach(element => { %>
+                         <option value="<%= element.id %> " name="category"><%= element.category %> </option>
+                        <% }) %>
                     </select>
                 </p>
 

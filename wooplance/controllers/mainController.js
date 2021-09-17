@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 const controller = {
   index: (req, res) => {
@@ -26,7 +27,17 @@ const controller = {
     res.render("categories");
   },
   search: (req, res) => {
-    res.render("search-results");
+    db.Gig.findAll({
+      where: {
+        gig:{
+          [Op.like]: req.query.search
+        }
+      }
+    })
+    .then((results) => {
+      res.render("search-results", {results: results});
+      
+    })
   },
   chat: (req, res) => {
     res.send("chat");

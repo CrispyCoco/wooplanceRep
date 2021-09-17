@@ -16,7 +16,10 @@ const controller = {
         })
     },
     create: (req,res) =>{
-        res.render('gig-add')
+        db.Category.findAll()
+        .then((data) => {
+            res.render('gig-add', {categories: data})
+        })
     },
     edit:(req,res) =>{
         res.render('gig-edit')
