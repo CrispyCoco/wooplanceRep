@@ -8,6 +8,7 @@ const controller = {
       include: [
         {
           association: "postedGigs",
+          
         },
         {
           association: "myGigs",
