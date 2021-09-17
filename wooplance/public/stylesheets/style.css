@@ -159,3 +159,7 @@ input {
   border-radius: 8px;
   border-color: rgba(0, 0, 0, 0.5);
 }
+
+.logout{
+  border: none;
+}

@@ -5,10 +5,9 @@ const bcrypt = require("bcryptjs");
 const controller = {
   index: (req, res) => {
     db.User.findByPk(req.params.id, {
-      include: [
-        {
+      include: [{
           association: "postedGigs",
-           
+
         },
         {
           association: "myGigs",
@@ -142,6 +141,11 @@ const controller = {
   },
   dashboard: (req, res) => {
     res.render("dashboard");
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.clearCookie('userId');
+    res.redirect('/');
   },
 };
 

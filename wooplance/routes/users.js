@@ -14,5 +14,7 @@ router.get("/login", controller.login);
 router.post("/login", controller.loginPost);
 //-------------------------------
 router.get("/dashboard", controller.dashboard);
+//-------------------------------
+router.post('/logout', controller.logout)
 
 module.exports = router;
