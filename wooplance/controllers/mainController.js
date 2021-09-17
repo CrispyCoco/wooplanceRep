@@ -30,11 +30,12 @@ const controller = {
     db.Gig.findAll({
       where: {
         gig:{
-          [Op.like]: req.query.search
+          [Op.like]: '%' + req.query.search + '%'
         }
       }
     })
     .then((results) => {
+      console.log(results);
       res.render("search-results", {results: results});
       
     })

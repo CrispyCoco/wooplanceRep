@@ -85,17 +85,18 @@
                 <h2 class="TitulosSecciones">Resultados de</h2>
                 <section class="card-list">
 
+                    <% results.forEach(gig => { %>
                         <article class="cardGig p-4">
-                            <a href="/gig/show/ ">
+                            <a href="/gig/show/<%= gig.id %> ">
                                 <div>
-                                    <img src=" " style="  border-radius: 15px;"
+                                    <img src="<%= gig.cover %> " style="  border-radius: 15px;"
                                         class="img-fluid"></img>
-                                    <h2 class="Nombrecard"> </h2>
-                                    <p class="Textocard"> </p>
+                                    <h2 class="Nombrecard"><%= gig.gig %> </h2>
+                                    <p class="Textocard"><%= gig.description %> </p>
                                 </div>
                             </a>
                         </article>
-
+                        <% }) %>
                 </section>
             </div>
         </div>
