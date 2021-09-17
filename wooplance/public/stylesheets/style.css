@@ -131,6 +131,15 @@ input {
 .input-sign input{
   width: 100%;
 }
+.input-sign textarea{
+  width: 100%;
+  padding: 15px;
+  margin: 0 0 5px 0;
+  border-radius: 8px;
+  font-size: 15px;
+  border-width: 2px;
+  border-style: solid;
+}
 
 .input-sign .register-button{
   width: 100% !important;
