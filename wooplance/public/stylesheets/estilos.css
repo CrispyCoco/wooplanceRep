@@ -601,6 +601,7 @@ label {
 }
 
 .sideBar .circles {
+  position: relative;
   width: 40px;
   height: 40px;
   margin: 30px auto;
@@ -614,6 +615,9 @@ label {
   transform: scale(1.025);
 }
 .sideBar i {
+  position: absolute;
+  top: 5px;
+  left: 5px;
   padding: auto;
   font-size: 30px;
   color: #7100ff;
@@ -621,4 +625,8 @@ label {
 
 .leftMargin {
   margin-left: 70px;
+}
+
+.red i{
+  color: red;
 }
