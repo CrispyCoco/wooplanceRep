@@ -592,7 +592,7 @@ label {
 .sideBar {
   position: fixed;
   left: 0%;
-  width: 80px;
+  width: 70px;
   height: 100vh;
   z-index: 2000;
   background-color: rgb(255, 255, 255);
@@ -620,5 +620,5 @@ label {
 }
 
 .leftMargin {
-  margin-left: 80px;
+  margin-left: 70px;
 }
