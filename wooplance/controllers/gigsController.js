@@ -1,30 +1,46 @@
 const db = require("../database/models");
 
 const controller = {
-    index: (req,res) =>{
-        db.Gig.findByPk(req.params.id,{
-            include:[{
+    index: (req, res) => {
+        db.Gig.findByPk(req.params.id, {
+            include: [{
                 association: 'freelancer',
-                include:[{
+                include: [{
                     association: 'postedGigs'
                 }]
-            },{
+            }, {
                 association: 'comments'
             }]
         }).then(info => {
-        res.render('gig2',{gig: info})
+            res.render('gig2', {
+                gig: info
+            })
         })
     },
-    create: (req,res) =>{
+    add: (req, res) => {
         db.Category.findAll()
-        .then((data) => {
-            res.render('gig-add', {categories: data})
-        })
+            .then((data) => {
+                res.render('gig-add', {
+                    categories: data, errorerror: null
+                })
+            })
     },
-    edit:(req,res) =>{
+    create: (req, res) => {
+        db.Category.findAll()
+            .then((data) => {
+                if (!req.body.title || !req.body.description || !req.body.specs || !req.body.minPrice || !req.body.maxPrice) {
+                    res.render('gig-add', {categories: data, error: 'No puede haber campos vacios'})
+                }
+                if (req.body.maxPrice< req.body.minPrice) {
+                    res.render('gig-add', {categories: data, error: 'El precio mínimo es mayor al máximo'})
+                }
+            })
+    },
+    edit: (req, res) => {
         res.render('gig-edit')
     },
-    myGigs: (req,res) =>{
+    update: (req, res) => {},
+    myGigs: (req, res) => {
         res.render('myGigs')
     }
 }

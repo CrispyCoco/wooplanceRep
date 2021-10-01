@@ -79,7 +79,7 @@ const controller = {
           username: req.body.username,
           email: req.body.mail,
           password: pssd,
-          profilePic: "",
+          profilePic: '/images/users/' + req.file.filename,
         }).then((user) => {
           req.session.user = user;
           res.cookie("userId", user.id, {
@@ -195,7 +195,7 @@ const controller = {
           username: req.body.username,
           email: req.body.mail,
           password: pssd,
-          profilePic: req.file.filename,
+          profilePic: '/images/users/' + req.file.filename,
         }).then((user) => {
           res.redirect("/");
         });
@@ -222,7 +222,7 @@ const controller = {
           lastName: req.body.lastName,
           username: req.body.username,
           email: req.body.mail,
-          profilePic: req.file.filename,
+          profilePic: '/images/users/' + req.file.filename,
         }).then((user) => {
           res.redirect("/");
         });
