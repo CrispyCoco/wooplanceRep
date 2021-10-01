@@ -137,7 +137,107 @@ const controller = {
     });
   },
   edit: (req, res) => {
-    res.render("profile-edit");
+    db.User.findByPk(req.params.id)
+    .then(user => {
+      res.render("profile-edit", {
+        error: null,
+        user: user
+      });
+    })
+  },
+  update: (req, res) => {
+    if (
+      !req.body.name
+    ) {
+      res.render("profile-edit", {
+        error: "El campo del nombre no puede quedar vacio",
+      });
+    } else if (!req.body.lastName) {
+      res.render("profile-edit", {
+        error: "El campo del apellido no puede quedar vacio",
+      });
+    } else if (!req.body.username) {
+      res.render("profile-edit", {
+        error: "El campo del usuario no puede quedar vacio",
+      });
+    } else if (!req.body.mail) {
+      res.render("profile-edit", {
+        error: "El campo del mail no puede quedar vacio",
+      });
+    }
+    db.User.findOne({
+      where: {
+        [Op.or]: {
+          email: req.body.mail,
+          username: req.body.username,
+        },
+      },
+    }).then((results) => {
+      if (results && results.id != req.body.id && results.email == req.body.mail) {
+        res.render("profile-edit", {
+          error: "El mail ya esta siendo utilizado",
+        });
+      } else if (results && results.id != req.body.id && results.username == req.body.username) {
+        res.render("profile-edit", {
+          error: "El nombre de usuario ya esta siendo utilizado",
+        });
+      }
+      if (req.file && req.body.password) {
+        if (req.body.password != req.body.passwordConfirm) {
+          res.render("profile-edit", {
+            error: "Las contraseñas deben ser iguales",
+          });
+        }
+        let pssd = bcrypt.hashSync(req.body.password);
+        db.User.update({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+          password: pssd,
+          profilePic: req.file.filename,
+        }).then((user) => {
+          res.redirect("/");
+        });
+      } else if (!req.file && req.body.password) {
+        if (req.body.password != req.body.passwordConfirm) {
+          res.render("profile-edit", {
+            error: "Las contraseñas deben ser iguales",
+          });
+        }
+        let pssd = bcrypt.hashSync(req.body.password);
+        db.User.update({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+          password: pssd,
+          profilePic: "/images/users/default-user.png",
+        }).then((user) => {
+          res.redirect("/");
+        });
+      } else if (req.file && !req.body.password){
+        db.User.update({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+          profilePic: req.file.filename,
+        }).then((user) => {
+          res.redirect("/");
+        });
+      } else {
+        db.User.update({
+          name: req.body.name,
+          lastName: req.body.lastName,
+          username: req.body.username,
+          email: req.body.mail,
+        }).then((user) => {
+          
+          res.redirect("/");
+        });
+      }
+    });
   },
   dashboard: (req, res) => {
     res.render("dashboard");

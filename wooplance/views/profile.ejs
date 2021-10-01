@@ -57,7 +57,12 @@
                 <h3 class="small pt-2">
                     Mail: <a href="mailto:<%= user.email %>"><%= user.email %></a>
                 </h3>
-                <button class="mt-2 btn_contratar">Contratar</button>
+                <% if (log && user.id == myUser.id) { %>
+                    <button class="mt-2 btn_contratar" href="/profile/edit/<%= user.id %> ">Contratar</button>
+                    
+                <% } else { %>
+                    <button class="mt-2 btn_contratar">Contratar</button>
+                <% } %>
                 <div class="row stats-profile text-center pt-5">
                     <div class="stat col-4">
                         <h3>Trabajos Terminados</h3>

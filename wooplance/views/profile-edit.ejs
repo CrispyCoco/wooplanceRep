@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %> 
+<body>
+<%- include('./partials/headerDeslogueado') %> 
+<div id="columna" class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Editá tu perfil</h2>
+        </div>
+        <!-- Show the "ultimos" products -->
+
+        <!-- Formulario de Registro -->
+        <div class="form">
+           
+            <form class="input-sign" action="/update" method="POST" enctype="multipart/form-data">
+                <p class="half">
+                    <input type="text" placeholder="Nombre/s" name="name" id="nombre" value="<%= user.name %>"required>
+                    <input type="text" placeholder="Apellido/s" name="lastName" id="nombre" value="<%= user.lastName %>" required>
+                </p>
+
+                <p>
+                    <input type="text" placeholder="Nombre de usuario" name="username" id="nombre" value="<%= user.username %>" required>
+                </p>
+
+                <p>
+                    <input type="email" placeholder="Correo electrónico" name="mail" id="mail" value="<%= user.email %>" required>
+                </p>
+    
+                <p>
+                    <input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="birthday" required>
+                </p>
+
+                <p>
+                    <input  type="file" name="profilePic" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
+                </p>
+
+                <p>
+                    <input type="password" placeholder="Contraseña" name="password" id="password" minlength="8">
+                </p>
+
+                <p>
+                    <input type="password" placeholder="Confirma contraseña" name="passwordConfirm" id="password" minlength="8">
+                </p>
+                <% if (error) { %>
+                    <p id="error"><%=error%></p>
+                <% } %>
+                
+
+                <button id="boton" class="register-button" type="submit" name="register-button" id="register-button">Registrarme</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div>
+        <img id="ilustration" src="/images/fixedImages/edit-profile-img.svg" alt="Foto de ilustracion">
+    </div>
+
+</body>
+</html>
