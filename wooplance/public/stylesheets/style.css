@@ -4,9 +4,8 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
-
 
 /****************************** LOGIN *****************************************/
 
@@ -24,7 +23,7 @@ a {
 }
 
 h2.products-title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
@@ -48,7 +47,7 @@ h2.products-title {
   margin-top: 50px;
 }
 
-.login p{
+.login p {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -71,7 +70,7 @@ input {
   margin: 30px 0 15px 0;
   border-radius: 8px;
   font-size: 20px;
-  background-color: #FF0088;
+  background-color: #ff0088;
   color: whitesmoke;
   border-width: 0px;
   text-align: center;
@@ -79,9 +78,8 @@ input {
 
 #boton:hover {
   background-color: #ff008888;
-
 }
-#recordame{
+#recordame {
   width: 100px;
   display: flex;
   align-self: self-start;
@@ -103,14 +101,12 @@ input {
 
 #crea:hover {
   background-color: rgba(149, 149, 149, 0.26);
-
 }
 
 #crea a {
   text-decoration-line: none;
-  color: #7100FF;
+  color: #7100ff;
 }
-
 
 #ilustration {
   /* width: 90%; */
@@ -122,16 +118,16 @@ input {
 }
 
 /**************************************** REGISTER **********************************/
-.form{
-  margin-top:30px
+.form {
+  margin-top: 30px;
 }
-.input-sign{
+.input-sign {
   width: 80%;
 }
-.input-sign input{
+.input-sign input {
   width: 100%;
 }
-.input-sign textarea{
+.input-sign textarea {
   width: 100%;
   padding: 15px;
   margin: 0 0 5px 0;
@@ -141,25 +137,25 @@ input {
   border-style: solid;
 }
 
-.input-sign .register-button{
+.input-sign .register-button {
   width: 100% !important;
 }
 .half {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .half input {
-  width: 48%
+  width: 48%;
 }
 
-#fotoProducto{
+#fotoProducto {
   border-width: 2px;
   border-style: solid;
   border-radius: 8px;
   border-color: rgba(0, 0, 0, 0.5);
 }
 
-.logout{
+.logout {
   border: none;
 }

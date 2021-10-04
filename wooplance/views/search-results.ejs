@@ -78,32 +78,34 @@
       
         
       
-
-        
-        <div class="wrapper  gomez" id="categorias_populares">
-            <div class="container-fluid">
-                <h2 class="TitulosSecciones">Resultados de</h2>
-                <section class="card-list">
-
-                    <% results.forEach(gig => { %>
-                        <article class="cardGig p-4">
-                            <a href="/gig/show/<%= gig.id %> ">
-                                <div>
-                                    <img src="<%= gig.cover %> " style="  border-radius: 15px;"
-                                        class="img-fluid"></img>
-                                    <h2 class="Nombrecard"><%= gig.gig %> </h2>
-                                    <p class="Textocard"><%= gig.description %> </p>
-                                </div>
-                            </a>
-                        </article>
-                        <% }) %>
-                </section>
+<div class="leftMargin">
+    
+    
+            <div class="wrapper  gomez" id="categorias_populares">
+                <div class="container-fluid">
+                    <h2 class="TitulosSecciones">Resultados de</h2>
+                    <section class="card-list">
+    
+                        <% results.forEach(gig => { %>
+                            <article class="cardGig p-4">
+                                <a href="/gig/show/<%= gig.id %> ">
+                                    <div>
+                                        <img src="<%= gig.cover %> " style="  border-radius: 15px;"
+                                            class="img-fluid"></img>
+                                        <h2 class="Nombrecard"><%= gig.gig %> </h2>
+                                        <p class="Textocard"><%= gig.description %> </p>
+                                    </div>
+                                </a>
+                            </article>
+                            <% }) %>
+                    </section>
+                </div>
             </div>
-        </div>
-
-  
-
-        <%- include("./partials/footer") %>
+    
+    
+    
+            <%- include("./partials/footer") %>
+</div>
 </body>
 
 </html>

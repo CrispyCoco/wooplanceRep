@@ -45,86 +45,88 @@
     <% } %>
 
     <div class="espacio"></div>
-
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col-2">
-                <img class="profile-pic" src="<%= user.profilePic %>" alt="" />
-
+<div class="leftMargin">
+    
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-2">
+                    <img class="profile-pic" src="<%= user.profilePic %>" alt="" />
+    
+                </div>
+                <div class="col-10 text-left">
+                    <h2><%= user.name %> <%= user.lastName %> </h2>
+                    <h3 class="small pt-2">
+                        Mail: <a href="mailto:<%= user.email %>"><%= user.email %></a>
+                    </h3>
+                    <% if (log && user.id == myUser.id) { %>
+                        <button class="mt-2 btn_contratar" href="/profile/edit/<%= user.id %> ">Contratar</button>
+    
+                    <% } else { %>
+                        <button class="mt-2 btn_contratar">Contratar</button>
+                    <% } %>
+                    <div class="row stats-profile text-center pt-5">
+                        <div class="stat col-4">
+                            <h3>Trabajos Terminados</h3>
+                            <h3 class="stat-num"><%= doneGigs %> %</h3>
+                        </div>
+                        <div class="stat col-4">
+                            <h3>Trabajos Publicados</h3>
+                            <h3 class="stat-num"><%= user.postedGigs.length %> </h3>
+                        </div>
+                        <div class="stat col-4">
+                            <h3>Contrataciones</h3>
+                            <h3 class="stat-num"><%= user.myGigs.length %> </h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-10 text-left">
-                <h2><%= user.name %> <%= user.lastName %> </h2>
-                <h3 class="small pt-2">
-                    Mail: <a href="mailto:<%= user.email %>"><%= user.email %></a>
-                </h3>
-                <% if (log && user.id == myUser.id) { %>
-                    <button class="mt-2 btn_contratar" href="/profile/edit/<%= user.id %> ">Contratar</button>
-                    
-                <% } else { %>
-                    <button class="mt-2 btn_contratar">Contratar</button>
+    
+        </div>
+    
+        <div class="container pt-5">
+            <h2 class="TitulosSecciones">Categorías Principales</h2>
+            <% if (user.postedGigs.length != 0) { %>
+    
+                <section class="card-list">
+                    <% user.postedGigs.forEach(element => { %>
+                        <article class="cardGig p-4">
+                            <a href="/gig/show/<%= element.id %> ">
+                                <div>
+                                    <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
+                                    <h2 class="Nombrecard"><%= element.gig %> </h2>
+                                    <p class="Textocard"><%= element.description %> </p>
+                                    <button class="mt-2 btn_contratar">Ver más</button>
+    
+                                </div>
+                            </a>
+                        </article>
+                        <% }) %>
+                    </section>
+                <% } else {%>
+                    <h2>No hay publicaciones hechas por este usuario</h2>
                 <% } %>
-                <div class="row stats-profile text-center pt-5">
-                    <div class="stat col-4">
-                        <h3>Trabajos Terminados</h3>
-                        <h3 class="stat-num"><%= doneGigs %> %</h3>
+    
+        </div>
+    
+    
+    
+        <div style="width: 100%;" class="container-fluid pt-5 mx-auto">
+            <div class="row">
+                <div style="padding: 30px;" class="col-6">
+                    <h2 class="contactar">Contactanos</h2>
+                    <p class="descContacto">¿Tienes alguna duda sobre nuestro servicio, o te gustaría aportar con una
+                        sugerencia?, envianos un mail o contactanos por nuestras redes sociales.</p>
+                    <div class="grupo_busqueda">
+                        <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
+                        <button id="btn_buscar"><i class='bx bx-send'></i></button>
                     </div>
-                    <div class="stat col-4">
-                        <h3>Trabajos Publicados</h3>
-                        <h3 class="stat-num"><%= user.postedGigs.length %> </h3>
-                    </div>
-                    <div class="stat col-4">
-                        <h3>Contrataciones</h3>
-                        <h3 class="stat-num"><%= user.myGigs.length %> </h3>
-                    </div>
+                </div>
+                <div class="col-6 logoFooter">
+                    <img src="/recursos/imagenes/logo.svg" alt="">
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="container pt-5">
-        <h2 class="TitulosSecciones">Categorías Principales</h2>
-        <% if (user.postedGigs.length != 0) { %>
-            
-            <section class="card-list">
-                <% user.postedGigs.forEach(element => { %>
-                    <article class="cardGig p-4">
-                        <a href="/gig/show/<%= element.id %> ">
-                            <div>
-                                <img src="<%= element.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
-                                <h2 class="Nombrecard"><%= element.gig %> </h2>
-                                <p class="Textocard"><%= element.description %> </p>
-                                <button class="mt-2 btn_contratar">Ver más</button>
-
-                            </div>
-                        </a>
-                    </article>
-                    <% }) %>
-                </section>
-            <% } else {%>
-                <h2>No hay publicaciones hechas por este usuario</h2>
-            <% } %>
-
-    </div>
-
-
-   
-    <div style="width: 100%;" class="container-fluid pt-5 mx-auto">
-        <div class="row">
-            <div style="padding: 30px;" class="col-6">
-                <h2 class="contactar">Contactanos</h2>
-                <p class="descContacto">¿Tienes alguna duda sobre nuestro servicio, o te gustaría aportar con una
-                    sugerencia?, envianos un mail o contactanos por nuestras redes sociales.</p>
-                <div class="grupo_busqueda">
-                    <input id="input_buscar" type="text" placeholder="Envianos un mensaje! ">
-                    <button id="btn_buscar"><i class='bx bx-send'></i></button>
-                </div>
-            </div>
-            <div class="col-6 logoFooter">
-                <img src="/recursos/imagenes/logo.svg" alt="">
-            </div>
-        </div>
-    </div>
+</div>
 </body>
 
 </html>

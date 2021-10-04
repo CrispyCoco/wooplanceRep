@@ -3,57 +3,59 @@
 <%- include('./partials/head') %> 
 <body>
 <%- include('./partials/header') %> 
-<div id="columna" class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="products-title">Agregar un producto</h2>
-        </div>
-        <!-- Show the "ultimos" products -->
-
-        <!-- Formulario de Registro -->
-        <div class="form">
-           
-            <form class="input-sign" action="/register" method="POST">
-                <p class="half">
-                    <input type="text" placeholder="Titulo:" name="titulo" id="nombre" required>
-                </p>
-
-                <p>
-                    <select class="form-control" name="category" >
-                        <option selected value="">- Categoria -</option>
-                        <option value="">Desarrollo Web</option>
-                        <option value="">Renders</option>
-                        <option value="">Informatica</option>
-                    </select>
-                </p>
-
-                <p>
-                    <input type="text" placeholder="Descripcion:" name="description" id="description" required>
-                </p>
+<div class="leftMargin">
+    <div id="columna" class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Agregar un producto</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
     
-                
-
-                <p>
-                    <input  type="file" name="img" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
-                </p>
-
-                <p>
-                    <input type="price" placeholder="Precio:" name="password" id="password" minlength="8" required>
-                </p>
-
-               
-                
-                
-
-                <button id="boton" class="register-button" type="submit" name="create-button" id="register-button">Publicar</button>
-            </form>
+            <!-- Formulario de Registro -->
+            <div class="form">
+    
+                <form class="input-sign" action="/register" method="POST">
+                    <p class="half">
+                        <input type="text" placeholder="Titulo:" name="titulo" id="nombre" required>
+                    </p>
+    
+                    <p>
+                        <select class="form-control" name="category" >
+                            <option selected value="">- Categoria -</option>
+                            <option value="">Desarrollo Web</option>
+                            <option value="">Renders</option>
+                            <option value="">Informatica</option>
+                        </select>
+                    </p>
+    
+                    <p>
+                        <input type="text" placeholder="Descripcion:" name="description" id="description" required>
+                    </p>
+    
+    
+    
+                    <p>
+                        <input  type="file" name="img" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
+                    </p>
+    
+                    <p>
+                        <input type="price" placeholder="Precio:" name="password" id="password" minlength="8" required>
+                    </p>
+    
+    
+    
+    
+    
+                    <button id="boton" class="register-button" type="submit" name="create-button" id="register-button">Publicar</button>
+                </form>
+            </div>
+    
         </div>
-
-    </div>
-
-    <div>
-        <img id="ilustration" src="/images/fixedImages/Edit_photo.svg   " alt="Foto de ilustracion">
-    </div>
+    
+        <div>
+            <img id="ilustration" src="/images/fixedImages/Edit_photo.svg   " alt="Foto de ilustracion">
+        </div>
+</div>
 
 </body>
 </html>
