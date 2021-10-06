@@ -6,7 +6,13 @@
 
     <div class="grupo_buscar">
       <div class="grupo_categorias">
-        <button id="btn_categorias" class="item_cat">Categorias</button>
+        <button
+          id="btn_categorias"
+          uk-toggle="target: #categoriesContainer "
+          class="item_cat"
+        >
+          Categorias
+        </button>
       </div>
       <div class="grupo_busqueda">
         <form action="/search" method="GET">
@@ -37,5 +43,8 @@
     <div class="circles">
       <a href="/login"><i class="bx bx-user"></i></a>
     </div>
+  </div>
+  <div id="categoriesContainer" hidden>
+    <i class="bx bx-x" uk-toggle="target: #categoriesContainer "></i>
   </div>
 </header>
