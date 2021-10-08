@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %> 
-<body>
-<%- include('./partials/headerDeslogueado') %> 
-    
-<div id="columna" class="container products-wrapper">
-    <div class="row form">
-        <div class="col-12">
+  <%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/headerDeslogueado') %>
+    <div class="leftMargin">
+      <div id="columna" class="container products-wrapper">
+        <div class="row form">
+          <div class="col-12">
             <h2 class="products-title">Inicia sesión en Wooplance</h2>
-        </div>
+          </div>
+          <!-- Formulario de login -->
+          <form action="/login" method="POST" class="login">
+            <p>
+              <input
+                type="text"
+                placeholder="Nombre de usuario o correo electrónico"
+                name="mail"
+                id="mail"
+                required
+              />
+            </p>
+            <p>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                name="password"
+                id="password"
+                required
+              />
+            </p>
 
-        <!-- Formulario de login -->
-        <form action="/login" method="POST" class="login">
-            <p>
-                <input type="text" placeholder="Nombre de usuario o correo electrónico" name="mail" id="mail" required>
-            </p>
-            <p>
-                <input type="password" placeholder="Contraseña" name="password" id="password" required>
-            </p>
-            
-            <button id="boton" type="submit" name="login-button" id="login-button">Iniciar sesión</button>
+            <button
+              id="boton"
+              type="submit"
+              name="login-button"
+              id="login-button"
+            >
+              Iniciar sesión
+            </button>
             <div id="recordame">
-                <label> Recordame </label>
-                
-                <input type="checkbox" name="remember" id="checkbox">
+              <label> Recordame </label>
+
+              <input type="checkbox" name="remember" id="checkbox" />
             </div>
-        </form>
-       <h6 id="register-url">No tenes cuenta? <a href="/register">Registrate!</a></h6>
-
+          </form>
+          <h6 id="register-url">
+            No tenes cuenta? <a href="/register">Registrate!</a>
+          </h6>
+        </div>
+        <div class="img">
+          <img
+            id="ilustration"
+            src="images/fixedImages/login-img.svg"
+            alt="Foto de ilustracion"
+          />
+        </div>
+      </div>
     </div>
-
-    <div class="img">
-        <img id="ilustration" src="images/fixedImages/login-img.svg" alt="Foto de ilustracion">
-    </div>
-
-</div>
-</body>
+  </body>
 </html>

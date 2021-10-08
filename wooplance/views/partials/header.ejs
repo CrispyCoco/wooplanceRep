@@ -6,12 +6,25 @@
 
     <div class="grupo_buscar">
       <div class="grupo_categorias">
-        <button id="btn_categorias" class="item_cat">Categorias</button>
+        <button
+          id="btn_categorias"
+          uk-toggle="target: #categoriesContainer "
+          class="item_cat"
+        >
+          Categorias
+        </button>
       </div>
       <div class="grupo_busqueda">
         <form action="/search" method="GET">
-          <input id="input_buscar" type="text" name="search" placeholder="EJ: 'Web Developer' " >
-          <button id="btn_buscar" type="submit"><i class="bx bx-search"></i></button>
+          <input
+            id="input_buscar"
+            type="text"
+            name="search"
+            placeholder="EJ: 'Web Developer' "
+          />
+          <button id="btn_buscar" type="submit">
+            <i class="bx bx-search"></i>
+          </button>
         </form>
       </div>
     </div>
@@ -30,23 +43,28 @@
           src="<%= myUser.profilePic%>"
           alt=""
         />
-        <p><%= myUser.name%> <%= myUser.lastName%> </p>
+        <p><%= myUser.name%> <%= myUser.lastName%></p>
       </a>
     </div>
   </nav>
   <div class="sideBar">
     <div class="circlesContainer">
       <div class="circles"><i class="bx bx-qr"></i></div>
-      <div class="circles"><i class='bx bxs-bar-chart-alt-2'></i></div>
-      <div class="circles"><i class='bx bx-grid'></i></div>
-      <div class="circles"><i class='bx bx-user' ></i></div>
+      <div class="circles"><i class="bx bxs-bar-chart-alt-2"></i></div>
+      <div class="circles"><i class="bx bx-grid"></i></div>
+      <div class="circles"><i class="bx bx-user"></i></div>
     </div>
     <div class="logout">
       <form action="/logout" method="POST">
         <div class="circles red">
-        <button type="submit" class="logout"><i class='bx bx-log-out-circle'></i></button>
-      </div>
+          <button type="submit" class="logout">
+            <i class="bx bx-log-out-circle"></i>
+          </button>
+        </div>
       </form>
     </div>
+  </div>
+  <div id="categoriesContainer" hidden>
+    <i class="bx bx-x" uk-toggle="target: #categoriesContainer "></i>
   </div>
 </header>
