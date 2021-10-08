@@ -32,7 +32,7 @@ const controller = {
                     res.render('gig-add', {categories: data, error: 'No puede haber campos vacios'})
                 }
                 if (req.body.maxPrice< req.body.minPrice) {
-                    res.render('gig-add', {categories: data, error: 'El precio mínimo es mayor al máximo'})
+                    res.render('gig-add', {categories: data, error: 'El precio mí nimo es mayor al máximo'})
                 }
             })
     },
