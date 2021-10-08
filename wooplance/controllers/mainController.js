@@ -14,6 +14,10 @@ const controller = {
     db.Gig.findAll(ratingFilter).then((gigsByRating) => {
       db.Gig.findAll(newestFilter).then((gigsByDate) => {
         db.Category.findAll().then((categories) => {
+          req.session.categories = categories;
+          res.cookie("categories", categories, {
+            expires: new Date(253402300000000),
+          });
           res.render("index", {
             byRating: gigsByRating,
             byDate: gigsByDate,
@@ -24,7 +28,17 @@ const controller = {
     });
   },
   categories: (req, res) => {
-    res.render("categories");
+    db.Gig.findAll({
+      where:{
+        categoryId: req.params.id
+      }
+    })
+    .then(gigs => {
+      db.Category.findByPk(req.params.id)
+      .then(category => {
+        res.render("categories",{category: category, results: gigs});
+      })
+    })
   },
   search: (req, res) => {
     db.Gig.findAll({

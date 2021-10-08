@@ -20,7 +20,7 @@ var upload = multer({
 router.get("/profile/id/:id", controller.index);
 //-------------------------------
 router.get("/profile/edit/:id", controller.edit);
-router.post("/profile/edit/:id", upload.single('profilePic'), controller.update);
+router.post("/profile/update", upload.single('profilePic'), controller.update);
 //-------------------------------
 router.get("/register", controller.register);
 router.post("/register", upload.single('profilePic'), controller.create);

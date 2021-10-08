@@ -19,7 +19,9 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,43 +33,52 @@ app.use(session({
 }));
 
 //COOKIES
-app.use(function(req, res, next) {
-  if(req.cookies.userId && !req.session.user) {
+app.use(function (req, res, next) {
+  if (req.cookies.userId && !req.session.user) {
     db.User.findByPk(req.cookies.userId).then(results => {
       req.session.user = results;
-      return next();
     });
-  } else {
-  	return next();
-  }}
-);
+  }
+  if (!req.cookies.categories || !req.session.categories) {
+    db.Category.findAll()
+      .then(results => {
+        req.session.categories = results;
+        res.cookies.res.cookie("categories", results, {
+          expires: new Date(253402300000000),
+        });
+      })
+  }
+  return next();
+});
 
 //LOCALS
-app.use(function(req, res, next) {
-  if(req.session.user){
+app.use(function (req, res, next) {
+  if (req.session.user) {
     res.locals = {
       log: true,
       myUser: req.session.user,
+      categories: req.session.categories,
     }
   } else {
     res.locals = {
+      categories: req.session.categories,
       log: false
     }
   }
 
-	return next();
+  return next();
 });
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/gig', gigRouter);
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

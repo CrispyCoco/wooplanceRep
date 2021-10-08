@@ -26,7 +26,7 @@
                         Mail: <a href="mailto:<%= user.email %>"><%= user.email %></a>
                     </h3>
                     <% if (log && user.id == myUser.id) { %>
-                        <button class="mt-2 btn_contratar" href="/profile/edit/<%= user.id %> ">Contratar</button>
+                        <a class="mt-2 btn_contratar" href="/profile/edit/<%= user.id %> ">Editar</a>
     
                     <% } else { %>
                         <button class="mt-2 btn_contratar">Contratar</button>

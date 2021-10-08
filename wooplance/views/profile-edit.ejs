@@ -14,7 +14,7 @@
             <!-- Formulario de Registro -->
             <div class="form">
     
-                <form class="input-sign" action="/update" method="POST" enctype="multipart/form-data">
+                <form class="input-sign" action="/profile/update" method="POST" enctype="multipart/form-data">
                     <p class="half">
                         <input type="text" placeholder="Nombre/s" name="name" id="nombre" value="<%= user.name %>"required>
                         <input type="text" placeholder="Apellido/s" name="lastName" id="nombre" value="<%= user.lastName %>" required>
@@ -29,7 +29,7 @@
                     </p>
     
                     <p>
-                        <input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="birthday" required>
+                        <input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="birthday">
                     </p>
     
                     <p>
@@ -46,7 +46,9 @@
                     <% if (error) { %>
                         <p id="error"><%=error%></p>
                     <% } %>
-    
+                    <p>
+                        <input type="hidden" name="id" value="<%= user.id %>">
+                    </p>
     
                     <button id="boton" class="register-button" type="submit" name="register-button" id="register-button">Registrarme</button>
                 </form>
