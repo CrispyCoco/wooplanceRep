@@ -634,3 +634,13 @@ label {
 .red i {
   color: red;
 }
+.item_cat{
+  background-color: #f8f9f8;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  border-radius: 10px;
+  transition: 0.2s;
+  height: 40px;
+}
