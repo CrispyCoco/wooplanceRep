@@ -1,27 +1,23 @@
 <header class="cabecera">
   <nav class="nav">
-    <a id="logo" href="/"
-      ><img src="/recursos/imagenes/logo.svg" alt="logo wooplance" />
+    <a id="logo" href="/"><img src="/recursos/imagenes/logo.svg" alt="logo wooplance" />
     </a>
 
     <div class="grupo_buscar">
       <div class="grupo_categorias">
-        <button
-          id="btn_categorias"
-          uk-toggle="target: #categoriesContainer "
-          class="item_cat"
-        >
-          Categorias
-        </button>
+
+        <button class="uk-button uk-button-default item_cat" type="button">Categorias</button>
+        <div uk-dropdown="mode: click">
+          <ul class="uk-nav uk-dropdown-nav">
+            <% categories.forEach(category => { %>
+            <li><a href="#"><%= category.category %> </a></li>
+            <% }) %>
+          </ul>
+        </div>
       </div>
       <div class="grupo_busqueda">
         <form action="/search" method="GET">
-          <input
-            id="input_buscar"
-            type="text"
-            name="search"
-            placeholder="EJ: 'Web Developer' "
-          />
+          <input id="input_buscar" type="text" name="search" placeholder="EJ: 'Web Developer' " />
           <button id="btn_buscar" type="submit">
             <i class="bx bx-search"></i>
           </button>
