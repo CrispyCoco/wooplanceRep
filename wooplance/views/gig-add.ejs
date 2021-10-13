@@ -1,60 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+  <%- include('./partials/head') %>
 
-<body>
-    <% if (log) { %>
+  <body>
+    <% if (log) { %> <%- include('./partials/header') %> <% } else{ %> <%-
+    include('./partials/headerDeslogueado') %> <% } %>
 
-    <%- include('./partials/header') %>
-    <% } else{ %>
-    <%- include('./partials/headerDeslogueado') %>
-
-    <% } %>
-
-    <div class="leftMargin">
-        <div id="columna" class="container products-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="products-title">Agregar un producto</h2>
-                </div>
-                <!-- Show the "ultimos" products -->
-                <!-- Formulario de Registro -->
-                <div class="form ">
-                    <form class="input-sign" action="/gig/create" method="POST">
-                        <p>
-                            <input type="text" placeholder="Titulo:" name="title" id="nombre" required>
-                        </p>
-                        <p>
-                            <select class="form-control" name="category">
-                                <% categories.forEach(element => { %>
-                                <option value="<%= element.id %>" name="category"><%= element.category %> </option>
-                                <% }) %>
-                            </select>
-                        </p>
-                        <p>
-                            <input type="text" placeholder="Descripción:" name="description" id="description" required>
-                        </p>
-                        <p>
-                            <textarea cols="54" placeholder="Especificaciones:" name="specs" id="description"
-                                required></textarea>
-                        </p>
-                        <p>
-                            <input type="file" name="img" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
-                        </p>
-                        <p class="half">
-                            <input type="price" placeholder="Precio Mínimo:" name="minPrice" id="price" required>
-                            <input type="price" placeholder="Precio Máximo:" name="maxPrice" id="price" required>
-                        </p>
-                        <button id="boton" class="register-button" type="submit" name="create-button"
-                            id="register-button">Publicar</button>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <img id="ilustration" src="/images/fixedImages/undraw_interaction.svg   " alt="Foto de ilustracion">
-            </div>
+    <div id="columna" class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">Agregar un producto</h2>
+        </div>
+        <!-- Show the "ultimos" products -->
+        <!-- Formulario de Registro -->
+        <div class="form">
+          <form class="input-sign" action="/gig/create" method="POST">
+            <p>
+              <input
+                type="text"
+                placeholder="Titulo:"
+                name="title"
+                id="nombre"
+                required
+              />
+            </p>
+            <p>
+              <select class="form-control" name="category">
+                <% categories.forEach(element => { %>
+                <option value="<%= element.id %>" name="category">
+                  <%= element.category %>
+                </option>
+                <% }) %>
+              </select>
+            </p>
+            <p>
+              <input
+                type="text"
+                placeholder="Descripción:"
+                name="description"
+                id="description"
+                required
+              />
+            </p>
+            <p>
+              <textarea
+                cols="54"
+                placeholder="Especificaciones:"
+                name="specs"
+                id="description"
+                required
+              ></textarea>
+            </p>
+            <p>
+              <input
+                type="file"
+                name="img"
+                id="fotoProducto"
+                accept="image/png, image/jpeg, image/jpg"
+              />
+            </p>
+            <p class="half">
+              <input
+                type="price"
+                placeholder="Precio Mínimo:"
+                name="minPrice"
+                id="price"
+                required
+              />
+              <input
+                type="price"
+                placeholder="Precio Máximo:"
+                name="maxPrice"
+                id="price"
+                required
+              />
+            </p>
+            <button
+              id="boton"
+              class="register-button"
+              type="submit"
+              name="create-button"
+              id="register-button"
+            >
+              Publicar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <img
+          id="ilustration"
+          src="/images/fixedImages/undraw_interaction.svg   "
+          alt="Foto de ilustracion"
+        />
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

@@ -59,9 +59,7 @@
 .stat-num {
   color: #7100ff;
 }
-.card-list {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
+
 .comment-pp {
   max-height: 20px;
   border-radius: 50%;

@@ -320,7 +320,6 @@ body {
 
 .fondoCasiBlacnco {
   background-color: #0000001c;
-  width: 100vw;
 }
 
 .TitulosSecciones {
@@ -330,13 +329,12 @@ body {
 }
 
 .card-list {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-
+  justify-content: center;
   margin-top: 35px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .card {
@@ -349,7 +347,7 @@ body {
 }
 
 .cardGig {
-  width: 15%;
+  width: 220px;
   background: #ffffff;
   transition: 0.2s;
   box-shadow: 0px 0px 10px #0000001f;
@@ -383,12 +381,10 @@ body {
 
 .fondoBlanco {
   background-color: #ffffff;
-  width: 100vw;
 }
 
 .comoFuncionaImg {
-  width: 250px;
-  height: 200px;
+  width: 100%;
 }
 
 .descComoFunciona {
@@ -396,7 +392,6 @@ body {
   color: #2e3658;
   font-size: 15px;
   margin-top: 20px;
-  width: 250px;
 }
 
 .PelotaComoFunciona {
@@ -412,7 +407,6 @@ body {
 
 .descContacto {
   color: #2e3658;
-  width: 600px;
   text-align: left;
   letter-spacing: 0.58px;
 }
@@ -579,10 +573,18 @@ label {
 }
 
 .profile-link {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   text-decoration: none;
   color: rgb(49, 49, 49);
+  align-content: center;
+}
+.profile-link img {
+  position: absolute;
+  top: 20%;
+}
+.profile-link p {
+  padding-left: 35px;
 }
 
 .profile-link:hover {
@@ -634,7 +636,7 @@ label {
 .red i {
   color: red;
 }
-.item_cat{
+.item_cat {
   background-color: #f8f9f8;
   border: none;
   font-size: 12px;
@@ -643,4 +645,15 @@ label {
   border-radius: 10px;
   transition: 0.2s;
   height: 40px;
+}
+
+.containerDetails {
+  width: 100%;
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.containerDetails div {
+  padding: 40px;
 }
