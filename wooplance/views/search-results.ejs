@@ -1,53 +1,53 @@
     <!doctype html>
-<html lang="en">
+    <html lang="en">
 
-<!-- Head -->
-<%- include('./partials/head') %>
-<!-- Head -->
+    <!-- Head -->
+    <%- include('./partials/head') %>
+    <!-- Head -->
 
-<body>
+    <body>
 
-    <div>
-        
+        <div>
 
-        <!-- Header -->
-        <% if (!log) { %>
-        <%- include('./partials/headerDeslogueado') %>
-        <% } else {%>
-        <%- include('./partials/header') %>
-        <% } %>
 
-        <!-- Header -->
+            <!-- Header -->
+            <% if (!log) { %>
+            <%- include('./partials/headerDeslogueado') %>
+            <% } else {%>
+            <%- include('./partials/header') %>
+            <% } %>
 
-        <div class="popup-overlay"></div>
-        <div class="popup">
-            <div class="popup-close" onclick="closeRegisterForm()">&times;</div>
-            <div class="form">
-                <div class="header">
-                    <p>Register Now</p>
-                </div>
-                <div class="element">
-                    <input placeholder="Mail" type="email" id="Mail">
-                </div>
-                <div class="element">
-                    <input placeholder="Nombre de Usuario" type="text" id="username">
-                </div>
-                <div class="element">
-                    <input placeholder="Contraseña" type="password" id="password">
-                </div>
-                <!--<div class="google-btn">
+            <!-- Header -->
+
+            <div class="popup-overlay"></div>
+            <div class="popup">
+                <div class="popup-close" onclick="closeRegisterForm()">&times;</div>
+                <div class="form">
+                    <div class="header">
+                        <p>Register Now</p>
+                    </div>
+                    <div class="element">
+                        <input placeholder="Mail" type="email" id="Mail">
+                    </div>
+                    <div class="element">
+                        <input placeholder="Nombre de Usuario" type="text" id="username">
+                    </div>
+                    <div class="element">
+                        <input placeholder="Contraseña" type="password" id="password">
+                    </div>
+                    <!--<div class="google-btn">
             <div class="google-icon-wrapper">
               <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
             </div>
             <p class="btn-text"><b>Sign in with google</b></p>
         </div>-->
-                <div class="element">
-                    <button class="Register" href="#">Registrarse</button>
+                    <div class="element">
+                        <button class="Register" href="#">Registrarse</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- <div class="container-fluid first-container">
+            <!-- <div class="container-fluid first-container">
             <div class="wrapper">
                 <div class="container-fluid">
                     <div class="row">
@@ -75,37 +75,35 @@
                 </div>
             </div>
         </div> -->
-      
-        
-      
-<div class="leftMargin">
-    
-    
+
+
+
+
+
             <div class="wrapper  gomez" id="categorias_populares">
                 <div class="container-fluid">
                     <h2 class="TitulosSecciones">Resultados de</h2>
                     <section class="card-list">
-    
+
                         <% results.forEach(gig => { %>
-                            <article class="cardGig p-4">
-                                <a href="/gig/show/<%= gig.id %> ">
-                                    <div>
-                                        <img src="<%= gig.cover %> " style="  border-radius: 15px;"
-                                            class="img-fluid"></img>
-                                        <h2 class="Nombrecard"><%= gig.gig %> </h2>
-                                        <p class="Textocard"><%= gig.description %> </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <% }) %>
+                        <article class="cardGig p-4">
+                            <a href="/gig/show/<%= gig.id %> ">
+                                <div>
+                                    <img src="<%= gig.cover %> " style="  border-radius: 15px;" class="img-fluid"></img>
+                                    <h2 class="Nombrecard"><%= gig.gig %> </h2>
+                                    <p class="Textocard"><%= gig.description %> </p>
+                                </div>
+                            </a>
+                        </article>
+                        <% }) %>
                     </section>
                 </div>
             </div>
-    
-    
-    
-            <%- include("./partials/footer") %>
-</div>
-</body>
 
-</html>
+
+
+            <%- include("./partials/footer") %>
+        </div>
+    </body>
+
+    </html>
