@@ -21,7 +21,7 @@ const controller = {
         db.Category.findAll()
             .then((data) => {
                 res.render('gig-add', {
-                    categories: data, errorerror: null
+                    categories: data, error: null
                 })
             })
     },
@@ -31,8 +31,41 @@ const controller = {
                 if (!req.body.title || !req.body.description || !req.body.specs || !req.body.minPrice || !req.body.maxPrice) {
                     res.render('gig-add', {categories: data, error: 'No puede haber campos vacios'})
                 }
-                if (req.body.maxPrice< req.body.minPrice) {
-                    res.render('gig-add', {categories: data, error: 'El precio mí nimo es mayor al máximo'})
+                // let minPrice = parseInt(req.body.minPrice, 10)
+                // let maxPrice = parseInt(req.body.maxPrice, 10) 
+                if ( req.body.maxPrice - req.body.minPrice < 0) {
+                    // res.render('gig-add', {categories: data, error: 'El precio mínimo es mayor al máximo'})
+                    res.send('minimo: ' + req.body.minPrice + ' maximo: ' + req.body.maxPrice)
+                }
+                // res.send('llegue aca')
+                if(req.file){
+                    db.Gig.create({
+                        gig: req.body.title,
+                        description: req.body.description,
+                        specs: req.body.specs,
+                        cover: '/images/gigs/' + req.file.filename,
+                        priceMin: req.body.minPrice,
+                        priceMax: req.body.maxPrice,
+                        categoryId: req.body.category,
+                        freelancerId: req.session.user.id,
+                        rating: 0,
+                    }).then(results => {
+                        res.redirect('/gig/show/' + results.id)
+                    });
+                } else{
+                    db.Gig.create({
+                        gig: req.body.title,
+                        description: req.body.description,
+                        specs: req.body.specs,
+                        cover: '/images/gigs/default-image.png',
+                        priceMin: req.body.priceMin,
+                        priceMax: req.body.priceMax,
+                        categoryId: req.body.category,
+                        freelancerId: req.session.user.id,
+                        rating: 0,
+                    }).then(results => {
+                        res.redirect('/gig/show/' + results.id)
+                    });
                 }
             })
     },

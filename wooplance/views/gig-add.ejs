@@ -42,9 +42,12 @@
                             <input type="file" name="img" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
                         </p>
                         <p class="half">
-                            <input type="price" placeholder="Precio Mínimo:" name="minPrice" id="price" required>
-                            <input type="price" placeholder="Precio Máximo:" name="maxPrice" id="price" required>
+                            <input type="number" placeholder="Precio Mínimo:" name="minPrice" id="price" required>
+                            <input type="number" placeholder="Precio Máximo:" name="maxPrice" id="price" required>
                         </p>
+                        <% if (error) { %>
+                            <p id="error"><%=error%></p>
+                            <% } %>
                         <button id="boton" class="register-button" type="submit" name="create-button"
                             id="register-button">Publicar</button>
                     </form>

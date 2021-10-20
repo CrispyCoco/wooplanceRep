@@ -17,7 +17,6 @@ const controller = {
       if(req.session.user){
         if(req.session.user.id == user.id){
           req.session.user = user
-          console.log('Actualice');
         }
       }
       if (user.myGigs.length != 0) {

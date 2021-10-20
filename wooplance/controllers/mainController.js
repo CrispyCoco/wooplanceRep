@@ -14,14 +14,10 @@ const controller = {
     db.Gig.findAll(ratingFilter).then((gigsByRating) => {
       db.Gig.findAll(newestFilter).then((gigsByDate) => {
         db.Category.findAll().then((categories) => {
-          req.session.categories = categories;
-          res.cookie("categories", categories, {
-            expires: new Date(253402300000000),
-          });
           res.render("index", {
             byRating: gigsByRating,
             byDate: gigsByDate,
-            categories: categories,
+            categorias: categories,
           });
         });
       });

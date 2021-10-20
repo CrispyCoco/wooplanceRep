@@ -39,15 +39,6 @@ app.use(function (req, res, next) {
       req.session.user = results;
     });
   }
-  if (!req.cookies.categories || !req.session.categories) {
-    db.Category.findAll()
-      .then(results => {
-        req.session.categories = results;
-        res.cookies.res.cookie("categories", results, {
-          expires: new Date(253402300000000),
-        });
-      })
-  }
   return next();
 });
 
@@ -57,11 +48,9 @@ app.use(function (req, res, next) {
     res.locals = {
       log: true,
       myUser: req.session.user,
-      categories: req.session.categories,
     }
   } else {
     res.locals = {
-      categories: req.session.categories,
       log: false
     }
   }

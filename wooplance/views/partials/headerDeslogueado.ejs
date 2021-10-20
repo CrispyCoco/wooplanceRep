@@ -9,7 +9,7 @@
         <button class="uk-button uk-button-default item_cat" type="button">Categorias</button>
         <div uk-dropdown="mode: click">
           <ul class="uk-nav uk-dropdown-nav">
-            <% categories.forEach(category => { %>
+            <% categorias.forEach(category => { %>
             <li><a href="/categories/<%= category.id %> "><%= category.category %> </a></li>
             <% }) %>
           </ul>
