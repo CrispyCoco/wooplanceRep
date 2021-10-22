@@ -13,7 +13,7 @@
         <div id="columna" class="container products-wrapper">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="products-title">Agregar un producto</h2>
+                    <h2 class="products-title">Agregar un servicio</h2>
                 </div>
                 <!-- Show the "ultimos" products -->
                 <!-- Formulario de Registro -->
@@ -24,6 +24,7 @@
                         </p>
                         <p>
                             <select class="form-control" name="category">
+                                <option>--Elegir Categoria--</option>
                                 <% categories.forEach(element => { %>
                                 <option value="<%= element.id %>" name="category"><%= element.category %> </option>
                                 <% }) %>

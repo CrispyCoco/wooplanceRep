@@ -1,88 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head') %>
-  <body>
-    <%- include('./partials/header') %>
+<%- include('./partials/head') %>
+
+<body>
+  <% if(log) {%>
+  <%- include('./partials/header') %>
+  <% } else{ %>
+  <%- include('./partials/headerDeslogueado') %>
+  <% } %>
+
+  <div class="leftMargin">
     <div id="columna" class="container products-wrapper">
       <div class="row">
         <div class="col-12">
-          <h2 class="products-title">Agregar un producto</h2>
+          <h2 class="products-title">Edita tu servicio</h2>
         </div>
         <!-- Show the "ultimos" products -->
-
         <!-- Formulario de Registro -->
-        <div class="form">
-          <form class="input-sign" action="/register" method="POST">
+        <div class="form ">
+          <form class="input-sign" action="/gig/edit" method="POST" enctype="multipart/form-data">
+            <p>
+              <input type="text" placeholder="Titulo:" name="title" id="nombre" value="<%= gig.gig %>" required>
+            </p>
+            <p>
+              <input type="text" placeholder="Descripción:" name="description" id="description" value="<%= gig.description %>" required>
+            </p>
+            <p>
+              <textarea cols="54" placeholder="Especificaciones:" name="specs" id="description" value="<%= gig.specs %>"></textarea>
+            </p>
+            <p>
+              <input type="file" name="img" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
+            </p>
             <p class="half">
-              <input
-                type="text"
-                placeholder="Titulo:"
-                name="gig"
-                id="nombre"
-              value="<%= gig.gig %> "
-                required
-              />
+              <input type="text" placeholder="Precio Mínimo:" name="minPrice" id="price" value="<%= gig.priceMin %>" required>
+              <input type="text" placeholder="Precio Máximo:" name="maxPrice" id="price" value="<%= gig.priceMax %>" required>
             </p>
+            <% if (error) { %>
+            <p id="error"><%=error%></p>
+            <% } %>
+            <input type="hidden" name="id" value="<%= gig.id %>">
+            <input type="hidden" name="prevCategory" value="<%= gig.category %>">
 
-            <p>
-              <select class="form-control" name="category">
-                <% categories.forEach(category => { %>
-                <option value="<%= category.id %> "><%= category.category %> </option>
-                 
-                <% }) %>
-              </select>
-            </p>
-
-            <p>
-              <input
-                type="text"
-                placeholder="Descripcion:"
-                name="description"
-                id="description"
-                required
-              />
-            </p>
-
-            <p>
-              <input
-                type="file"
-                name="img"
-                id="fotoProducto"
-                accept="image/png, image/jpeg, image/jpg"
-              />
-            </p>
-
-            <p>
-              <input
-                type="price"
-                placeholder="Precio:"
-                name="password"
-                id="password"
-                minlength="8"
-                required
-              />
-            </p>
-
-            <button
-              id="boton"
-              class="register-button"
-              type="submit"
-              name="create-button"
-              id="register-button"
-            >
-              Publicar
-            </button>
+            <button id="boton" class="register-button" type="submit" name="create-button"
+              id="register-button">Editar</button>
           </form>
         </div>
       </div>
-
       <div>
-        <img
-          id="ilustration"
-          src="/images/fixedImages/Edit_photo.svg   "
-          alt="Foto de ilustracion"
-        />
+        <img id="ilustration" src="/images/fixedImages/Edit_photo.svg" alt="Foto de ilustracion">
       </div>
     </div>
-  </body>
+</body>
+
 </html>
