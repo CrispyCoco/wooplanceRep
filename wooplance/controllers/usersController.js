@@ -14,140 +14,168 @@ const controller = {
         },
       ],
     }).then((user) => {
-      if(req.session.user){
-        if(req.session.user.id == user.id){
-          req.session.user = user
-        }
-      }
-      if (user.myGigs.length != 0) {
-        let finishedGigs = 0;
-        user.myGigs.forEach((element) => {
-          if (element.done) {
-            finishedGigs += 1;
+      db.Category.findAll().then((categories) => {
+
+        if (req.session.user) {
+          if (req.session.user.id == user.id) {
+            req.session.user = user
           }
-        });
-        // res.send(user.myGigs)
-        let percent = (finishedGigs / user.myGigs.length) * 100;
+        }
+        if (user.myGigs.length != 0) {
+          let finishedGigs = 0;
+          user.myGigs.forEach((element) => {
+            if (element.done) {
+              finishedGigs += 1;
+            }
+          });
+          // res.send(user.myGigs)
+          let percent = (finishedGigs / user.myGigs.length) * 100;
           res.render("profile", {
             user: user,
             doneGigs: percent,
+            categories: categories
           });
-        } 
-      res.render("profile", {
-        user: user,
-        doneGigs: 0,
+        }
+        res.render("profile", {
+          user: user,
+          doneGigs: 0,
+          categories: categories
+        });
       });
-    });
+    })
   },
   register: (req, res) => {
-    res.render("register", {
-      error: null,
-    });
+    db.Category.findAll().then((categories) => {
+
+      res.render("register", {
+        error: null,
+        categories: categories
+      });
+    })
   },
   create: (req, res) => {
-    if (
-      !req.body.name ||
-      !req.body.lastName ||
-      !req.body.username ||
-      !req.body.mail ||
-      !req.body.birthday ||
-      !req.body.password ||
-      !req.body.passwordConfirm
-    ) {
-      res.render("register", {
-        error: "No puede haber campos vacios",
-      });
-    }
-    if (req.body.password != req.body.passwordConfirm) {
-      res.render("register", {
-        error: "Las contraseñas deben ser iguales",
-      });
-    }
-    let pssd = bcrypt.hashSync(req.body.password);
-    db.User.findOne({
-      where: {
-        [Op.or]: {
-          email: req.body.mail,
-          username: req.body.username,
-        },
-      },
-    }).then((results) => {
-      if (results) {
+    db.Category.findAll().then((categories) => {
+
+      if (
+        !req.body.name ||
+        !req.body.lastName ||
+        !req.body.username ||
+        !req.body.mail ||
+        !req.body.birthday ||
+        !req.body.password ||
+        !req.body.passwordConfirm
+      ) {
         res.render("register", {
-          error: "Este mail ya esta siendo utilizado",
+          error: "No puede haber campos vacios",
+          categories: categories
         });
       }
-      if (req.file) {
-        db.User.create({
-          name: req.body.name,
-          lastName: req.body.lastName,
-          username: req.body.username,
-          email: req.body.mail,
-          password: pssd,
-          profilePic: '/images/users/' + req.file.filename,
-        }).then((user) => {
-          req.session.user = user;
-          res.cookie("userId", user.id, {
-            maxAge: 1000 * 60 * 5,
-          });
-          res.redirect("/");
-        });
-      } else {
-        db.User.create({
-          name: req.body.name,
-          lastName: req.body.lastName,
-          username: req.body.username,
-          email: req.body.mail,
-          password: pssd,
-          profilePic: "/images/users/default-user.png",
-        }).then((user) => {
-          req.session.user = user;
-          res.cookie("userId", user.id, {
-            maxAge: 1000 * 60 * 5,
-          });
-          res.redirect("/");
+      if (req.body.password != req.body.passwordConfirm) {
+        res.render("register", {
+          error: "Las contraseñas deben ser iguales",
+          categories: categories
         });
       }
-    });
+      let pssd = bcrypt.hashSync(req.body.password);
+      db.User.findOne({
+        where: {
+          [Op.or]: {
+            email: req.body.mail,
+            username: req.body.username,
+          },
+        },
+      }).then((results) => {
+        if (results) {
+          res.render("register", {
+            error: "Este mail ya esta siendo utilizado",
+            categories: categories
+          });
+        }
+        if (req.file) {
+          db.User.create({
+            name: req.body.name,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.mail,
+            password: pssd,
+            profilePic: '/images/users/' + req.file.filename,
+          }).then((user) => {
+            req.session.user = user;
+            res.cookie("userId", user.id, {
+              maxAge: 1000 * 60 * 5,
+            });
+            res.redirect("/");
+          });
+        } else {
+          db.User.create({
+            name: req.body.name,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.mail,
+            password: pssd,
+            profilePic: "/images/users/default-user.png",
+          }).then((user) => {
+            req.session.user = user;
+            res.cookie("userId", user.id, {
+              maxAge: 1000 * 60 * 5,
+            });
+            res.redirect("/");
+          });
+        }
+      });
+    })
   },
   login: (req, res) => {
-    res.render("login", {error:null});
+    db.Category.findAll().then((categories) => {
+      res.render("login", {
+        error: null,
+        categories: categories
+      });
+    })
   },
   loginPost: (req, res) => {
-    if (!req.body.mail || !req.body.password) {
-      res.render("login", {
-        error: "No puede haber campos vacios",
-      });
-    }
-    db.User.findOne({
-      where: {
-        [Op.or]: {
-          username: req.body.mail,
-          email: req.body.mail,
-        },
-      },
-    }).then((user) => {
-      if (!user || bcrypt.compareSync(user.password, req.body.password)) {
+    db.Category.findAll().then((categories) => {
+      if (!req.body.mail || !req.body.password) {
         res.render("login", {
-          error: "El mail o la contraseña son incorrectos",
+          error: "No puede haber campos vacios",
+          categories: categories
         });
       }
-      req.session.user = user;
-      if (req.body.remember) {
-        res.cookie("userId", user.id, {
-          maxAge: 1000 * 60 * 5,
-        });
-      }
-      res.redirect("/");
-    });
+      db.User.findOne({
+        where: {
+          [Op.or]: {
+            username: req.body.mail,
+            email: req.body.mail,
+          },
+        },
+      }).then((user) => {
+        if (!user || bcrypt.compareSync(user.password, req.body.password)) {
+          res.render("login", {
+            error: "El mail o la contraseña son incorrectos",
+            categories: categories
+          });
+        }
+        req.session.user = user;
+        if (req.body.remember) {
+          res.cookie("userId", user.id, {
+            maxAge: 1000 * 60 * 5,
+          });
+        }
+        res.redirect("/");
+      });
+    })
   },
   edit: (req, res) => {
     db.User.findByPk(req.params.id)
       .then(user => {
-        res.render("profile-edit", {
-          error: null,
-          user: user
-        });
+        db.Category.findAll().then(categories => {
+
+          res.render("profile-edit", {
+            error: null,
+            user: user,
+            categories: categories
+          });
+        })
       })
   },
   update: (req, res) => {
@@ -220,9 +248,9 @@ const controller = {
               email: req.body.mail,
               password: pssd,
               profilePic: '/images/users/' + req.file.filename,
-            },{
-              where:{
-                id:req.body.id,
+            }, {
+              where: {
+                id: req.body.id,
               }
             }).then((user) => {
               res.redirect("/profile/" + req.body.id);
@@ -243,9 +271,9 @@ const controller = {
               email: req.body.mail,
               password: pssd,
               profilePic: "/images/users/default-user.png",
-            },{
-              where:{
-                id:req.body.id,
+            }, {
+              where: {
+                id: req.body.id,
               }
             }).then((user) => {
               res.redirect("/profile/id/" + req.body.id);
@@ -257,9 +285,9 @@ const controller = {
               username: req.body.username,
               email: req.body.mail,
               profilePic: '/images/users/' + req.file.filename,
-            },{
-              where:{
-                id:req.body.id,
+            }, {
+              where: {
+                id: req.body.id,
               }
             }).then((user) => {
               res.redirect("/profile/id/" + req.body.id);
@@ -270,9 +298,9 @@ const controller = {
               lastName: req.body.lastName,
               username: req.body.username,
               email: req.body.mail,
-            },{
-              where:{
-                id:req.body.id,
+            }, {
+              where: {
+                id: req.body.id,
               }
             }).then((user) => {
               res.redirect("/profile/id/" + req.body.id);

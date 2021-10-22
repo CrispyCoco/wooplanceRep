@@ -17,18 +17,19 @@
               <input
                 type="text"
                 placeholder="Titulo:"
-                name="titulo"
+                name="gig"
                 id="nombre"
+              value="<%= gig.gig %> "
                 required
               />
             </p>
 
             <p>
               <select class="form-control" name="category">
-                <option selected value="">- Categoria -</option>
-                <option value="">Desarrollo Web</option>
-                <option value="">Renders</option>
-                <option value="">Informatica</option>
+                <% categories.forEach(category => { %>
+                <option value="<%= category.id %> "><%= category.category %> </option>
+                 
+                <% }) %>
               </select>
             </p>
 

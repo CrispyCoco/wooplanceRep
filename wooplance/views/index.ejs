@@ -6,8 +6,10 @@
 
 <body>
     <!-- Header -->
-    <% if (!log) { %> <%- include('./partials/headerDeslogueado') %> <% } else
-    {%> <%- include('./partials/header') %> <% } %>
+    <% if (!log) { %> 
+    <%- include('./partials/headerDeslogueado') %> 
+    <% } else{%> 
+    <%- include('./partials/header') %> <% } %>
     <!-- Header -->
 
     <div class="popup-overlay"></div>
@@ -139,9 +141,9 @@
             </section>
         </div>
     </div>
-    <div class=" fondoCasiBlacnco pt-5" id="categorias_populares">
+    <div class=" fondoCasiBlacnco pt-5" id="categorias_populares" style="padding-bottom:30px;">
         <div class="container-fluid">
-            <h2 class="TitulosSecciones"  style="padding-left:40px;">Publicaciones Mejor Puntuadas</h2>
+            <h2 class="TitulosSecciones" style="padding-left:40px;">Publicaciones Mejor Puntuadas</h2>
             <section class="card-list">
                 <% byRating.forEach(gig => { %>
                 <article class="cardGig p-4">
@@ -157,7 +159,7 @@
             </section>
         </div>
     </div>
-    <div class=" fondoBlanco container-fluid  pt-5">
+    <div class=" fondoBlanco container-fluid  pt-5" >
         <h2 class="TitulosSecciones" style="padding-left:40px;">¿Como funciona Wooplance?</h2>
         <div class="containerDetails ">
             <div class="">

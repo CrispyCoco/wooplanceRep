@@ -86,10 +86,16 @@
                                 <h3 class="small">Hasta</h3>
                                 <h2>AR$<%= gig.priceMax %> </h2>
                             </div>
-                            <div class="buttons-gig">
-                                <a id="btn_chatear">Chatear</a>
-                                <a id="btn_contratar">Contratar</a>
-                            </div>
+                            <% if (log && gig.freelancer.id == myUser.id) { %>
+                                <div class="buttons-gig">
+                                    <a href="/gig/edit/<%= gig.id %> " id="btn_contratar">Editar</a>
+                                </div>
+                            <% } else {%>
+                                <div class="buttons-gig">
+                                    <a id="btn_chatear">Chatear</a>
+                                    <a id="btn_contratar">Contratar</a>
+                                </div>
+                            <% } %>
                             <div class="profile-gig pt-5 pb-2 mx-auto">
                                 <div class="row data-profile-gig">
                                     <div class="col-2 img-profile-gig"><img class="img-fluid"

@@ -12,16 +12,21 @@ const controller = {
                 association: 'comments'
             }]
         }).then(info => {
-            res.render('gig2', {
-                gig: info
-            })
+            db.Category.findAll()
+                .then((data) => {
+                    res.render('gig2', {
+                        gig: info,
+                        categories: data
+                    })
+                })
         })
     },
     add: (req, res) => {
         db.Category.findAll()
             .then((data) => {
                 res.render('gig-add', {
-                    categories: data, error: null
+                    categories: data,
+                    error: null
                 })
             })
     },
@@ -29,16 +34,19 @@ const controller = {
         db.Category.findAll()
             .then((data) => {
                 if (!req.body.title || !req.body.description || !req.body.specs || !req.body.minPrice || !req.body.maxPrice) {
-                    res.render('gig-add', {categories: data, error: 'No puede haber campos vacios'})
+                    res.render('gig-add', {
+                        categories: data,
+                        error: 'No puede haber campos vacios'
+                    })
                 }
                 // let minPrice = parseInt(req.body.minPrice, 10)
                 // let maxPrice = parseInt(req.body.maxPrice, 10) 
-                if ( req.body.maxPrice - req.body.minPrice < 0) {
+                if (req.body.maxPrice - req.body.minPrice < 0) {
                     // res.render('gig-add', {categories: data, error: 'El precio mínimo es mayor al máximo'})
                     res.send('minimo: ' + req.body.minPrice + ' maximo: ' + req.body.maxPrice)
                 }
                 // res.send('llegue aca')
-                if(req.file){
+                if (req.file) {
                     db.Gig.create({
                         gig: req.body.title,
                         description: req.body.description,
@@ -52,14 +60,14 @@ const controller = {
                     }).then(results => {
                         res.redirect('/gig/show/' + results.id)
                     });
-                } else{
+                } else {
                     db.Gig.create({
                         gig: req.body.title,
                         description: req.body.description,
                         specs: req.body.specs,
                         cover: '/images/gigs/default-image.png',
-                        priceMin: req.body.priceMin,
-                        priceMax: req.body.priceMax,
+                        priceMin: req.body.minPrice,
+                        priceMax: req.body.maxPrice,
                         categoryId: req.body.category,
                         freelancerId: req.session.user.id,
                         rating: 0,
@@ -70,11 +78,23 @@ const controller = {
             })
     },
     edit: (req, res) => {
-        res.render('gig-edit')
+        db.Category.findAll().then(categories => {
+            db.Gig.findByPk(req.params.id).then(data => {
+                res.render('gig-edit', {
+                    categories: categories,
+                    gig: data,
+                    error:null
+                })
+            })
+        })
     },
     update: (req, res) => {},
     myGigs: (req, res) => {
-        res.render('myGigs')
+        db.Category.findAll().then(data => {
+            res.render('myGigs', {
+                categories: data
+            })
+        })
     }
 }
 

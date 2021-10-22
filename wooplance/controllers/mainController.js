@@ -5,11 +5,11 @@ const controller = {
   index: (req, res) => {
     let ratingFilter = {
       order: [["rating", "DESC"]],
-      limit: 6,
+      limit: 5,
     };
     let newestFilter = {
       order: [["createdAt", "DESC"]],
-      limit: 6,
+      limit: 5,
     };
     db.Gig.findAll(ratingFilter).then((gigsByRating) => {
       db.Gig.findAll(newestFilter).then((gigsByDate) => {
@@ -17,7 +17,7 @@ const controller = {
           res.render("index", {
             byRating: gigsByRating,
             byDate: gigsByDate,
-            categorias: categories,
+            categories: categories,
           });
         });
       });
@@ -30,9 +30,9 @@ const controller = {
       }
     })
     .then(gigs => {
-      db.Category.findByPk(req.params.id)
-      .then(category => {
-        res.render("categories",{category: category, results: gigs});
+      db.Category.findAll()
+      .then(categories => {
+        res.render("categories",{category: categories[req.params.id], results: gigs, categories: categories});
       })
     })
   },
@@ -45,8 +45,10 @@ const controller = {
       }
     })
     .then((results) => {
-      console.log(results);
-      res.render("search-results", {results: results});
+      db.Category.findAll().then((categories) => {
+
+        res.render("search-results", {results: results, categories: categories});
+      })
       
     })
   },
