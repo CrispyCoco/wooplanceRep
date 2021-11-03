@@ -12,7 +12,11 @@
         <div uk-dropdown="mode: click">
           <ul class="uk-nav uk-dropdown-nav">
             <% categories.forEach(category => { %>
-            <li><a href="#"><%= category.category %> </a></li>
+            <li>
+              <a href="/categories/<%= category.id %> "
+                ><%= category.category %>
+              </a>
+            </li>
             <% }) %>
           </ul>
         </div>
