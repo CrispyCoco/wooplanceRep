@@ -88,3 +88,7 @@ body{
 .ahrefCard{
     text-decoration-line: none;
 }
+
+#hire{
+    display: none;
+  }
