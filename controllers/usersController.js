@@ -113,7 +113,7 @@ const controller = {
             username: req.body.username,
             email: req.body.mail,
             password: pssd,
-            profilePic: "/images/users/default-user.png",
+            profilePic: "/images/users/default-user.svg",
           }).then((user) => {
             req.session.user = user;
             res.cookie("userId", user.id, {
