@@ -144,3 +144,4 @@ INSERT INTO ratings VALUES
 (default, 5, 2, 10),
 (default, 5, 3, 10),
 (default, 5, 4, 10);
+-- hola
