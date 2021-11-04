@@ -153,37 +153,32 @@
         <div class="container pt-5">
             <h3>Califaciones de clientes (4)</h3>
 
+           
+           <% gig.comments.forEach(comment => { %>
             <div class="comment pt-5">
-                <h4 class="pt-2">Proyecto Aplicación Web</h4>
+                <h4 class="pt-2"><%= gig.gig %> </h4>
                 <div class="user-comment pt-2">
-                    <img class="comment-pp" src="/recursos/imagenes/persona 4.png" alt="">
-                    <h3 class="small">milton_ki</h3>
+                    <img class="comment-pp" src="<%= comment.user.profilePic %> " alt="">
+                    <h3 class="medium"><%= comment.user.username %> </h3>
                 </div>
                 <div class="pt-2">
-                    <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir
-                        trabajando
-                        con el en mejoras para el proyecto y mas ideas a futuro."</h4>
+                    <h4 class="comment-title"><%= comment.comment %> </h4>
                 </div>
-                <button class="btn_categories">MySql</button>
-                <button class="btn_categories">Javascript</button>
-                <button class="btn_categories">Python</button>
             </div>
-            <div class="comment pt-5">
-                <h4 class="pt-2">Proyecto Aplicación Web</h4>
-                <div class="user-comment pt-2">
-                    <img class="comment-pp" src="/recursos/imagenes/persona 4.png" alt="">
-                    <h3 class="small">milton_ki</h3>
-                </div>
-                <div class="pt-2">
-                    <h4 class="small">"Excelente profesional, pendiente de cada situacion, espero poder seguir
-                        trabajando
-                        con el en mejoras para el proyecto y mas ideas a futuro."</h4>
-                </div>
-                <button class="btn_categories">MySql</button>
-                <button class="btn_categories">Javascript</button>
-                <button class="btn_categories">Python</button>
-            </div>
-            <button class="mx-auto btn_comments m-5">+ Califaciones</button>
+            
+           <% }) %>
+            <% if (log) { %>
+            <form action="/gig/comment" method="post">
+                <input type="text" name="comment" id="" placeholder="Comenta">
+                <input type="hidden" name="id" value="<%= gig.id %> ">
+                <button class="mx-auto btn_comments m-5">Comentar</button>
+            </form>
+            <% } else {%>
+                <form action="/login" method="get">
+                    <input type="text" name="comment" id="" placeholder="Comenta">
+                    <button class="mx-auto btn_comments m-5">Comentar</button>
+                </form>
+            <% } %>
         </div>
         <div class="container pt-5">
             <h2 class="TitulosSecciones">Otros Trabajos de <%= gig.freelancer.name %> <%= gig.freelancer.lastName %>

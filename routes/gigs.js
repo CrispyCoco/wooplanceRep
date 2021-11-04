@@ -23,5 +23,5 @@ router.post("/create", upload.single('img'), controller.create);
 router.get("/edit/:id", controller.edit);
 router.post("/edit", upload.single('img'), controller.update);
 router.get("/myGigs", controller.myGigs);
-
+router.post('/comment', controller.comment);
 module.exports = router;

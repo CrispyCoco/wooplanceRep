@@ -9,7 +9,10 @@ const controller = {
                     association: 'postedGigs'
                 }]
             }, {
-                association: 'comments'
+                association: 'comments',
+                include: [{
+                    association: 'user'
+                }]
             }]
         }).then(info => {
             db.Category.findAll()
@@ -175,6 +178,14 @@ const controller = {
                 categories: data
             })
         })
+    },
+    comment: (req, res) => {
+        db.Comment.create({
+            comment: req.body.comment,
+            userId: req.session.user.id,
+            gigId: req.body.id
+        })
+        .then(() => res.redirect('/gig/show/'+req.body.id))
     }
 }
 
