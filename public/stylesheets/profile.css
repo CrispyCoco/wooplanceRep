@@ -61,7 +61,7 @@
 }
 
 .comment-pp {
-  max-height: 60px;
+  max-height: 40px;
   border-radius: 50%;
   padding-right: 15px;
 }
@@ -71,12 +71,17 @@
   align-items: center;
 }
 
-.medium{
+.comment-user{
   margin: 0;
   font-weight: bold;
+  font-size:17px
 }
 .comment-title{
   margin-left: 70px;
+  font-size: 15px
+}
+.pt-1{
+  font-size: 20px;
 }
 .card-list a {
   text-decoration-line: none;

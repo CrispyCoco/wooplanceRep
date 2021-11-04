@@ -151,20 +151,21 @@
             </div>
         </div>
         <div class="container pt-5">
-            <h3>Califaciones de clientes (4)</h3>
+            <h3>Califaciones de clientes (<%= gig.comments.length %>)</h3>
 
            
            <% gig.comments.forEach(comment => { %>
             <div class="comment pt-5">
-                <h4 class="pt-2"><%= gig.gig %> </h4>
-                <div class="user-comment pt-2">
+                <h4 class="pt-1"><%= gig.gig %> </h4>
+                <a class="user-comment pt-2" href="/profile/id/<%= comment.user.id %>">
                     <img class="comment-pp" src="<%= comment.user.profilePic %> " alt="">
-                    <h3 class="medium"><%= comment.user.username %> </h3>
-                </div>
+                    <h3 class="comment-user"><%= comment.user.username %> </h3>
+                </a>
                 <div class="pt-2">
                     <h4 class="comment-title"><%= comment.comment %> </h4>
                 </div>
             </div>
+            <hr style="width: 80%; margin: auto; height: 1px; opacity: 100%;">
             
            <% }) %>
             <% if (log) { %>
