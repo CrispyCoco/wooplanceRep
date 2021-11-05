@@ -6,22 +6,69 @@
     <%- include('./partials/header') %>
     <div class="container products-wrapper">
         <div class="row">
-            <h2 class="violet-title">Manejo de Trabajos</h2>
+            <h2 class="violet-title">Trabajos Pendientes</h2>
 
             <div class="gigs-container">
+                <% if (pendingGigs.length > 0) {%>
+
+                <% pendingGigs.forEach(gig => { %>
+
                 <div class="gig-card row">
-                    <div class="col-3"><img src="/recursos/imagenes/gig.png" alt="logo wooplance"></div>
+                    <div class="col-3"><img src="<%= gig.cover %> " alt="logo wooplance"></div>
                     <div class="col-4">
-                        <h3>Creacion de Pagina Web</h3>
-                        <h3 class="small">Necesitaba Crear un blog en el cual me gustaria publicar descubrimientos que
-                            yo realizo. La idea principal es que los...</h3>
+                        <h3><%= gig.gig %> </h3>
+                        <h3 class="small"><%= gig.description %> </h3>
                     </div>
                     <div class="col-4 ">
                         <h3 class="violet-subtitle">Presupuesto <br>
-                        AR$ 2500 - AR$5000</h3> 
-                        <h3 class="small">Tiempo de Entrega: 5 dias</h3>
+                            AR$ <%= gig.priceMin %> - AR$<%= gig.priceMax %> </h3>
+                        <% if (!gig.done) { %>
+                            <form action="/gig/done" method="post" class="form-hire">
+                                <input type="hidden" name="gigId" value="<%= gig.id %>">
+                                <button type="submit" id="btn_contratar">Entregar</a>
+                            </form>
+                        <% } else{ %>
+                            <form action="/gig/myGigs" method="get" class="form-hire">
+                                <button type="disabled" id="btn_chatear">Entregado</a>
+                            </form>
+                        <% } %>
                     </div>
                 </div>
+                <% }) %>
+                <% } else{ %>
+                <h4>Todavia no tienes trabajos</h4>
+                <% } %>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <h2 class="violet-title">Contrataciones</h2>
+            <% if (hires.length > 0) {%>
+
+            <div class="gigs-container">
+                <% hires.forEach(gig => { %>
+
+                <div class="gig-card row">
+                    <div class="col-3"><img src="<%= gig.cover %> " alt="logo wooplance"></div>
+                    <div class="col-4">
+                        <h3><%= gig.gig %> </h3>
+                        <h3 class="small"><%= gig.description %> </h3>
+                    </div>
+                    <div class="col-4 ">
+                        <h3 class="violet-subtitle">Presupuesto <br>
+                            AR$ <%= gig.priceMin %> - AR$<%= gig.priceMax %> </h3>
+                        <% if (!gig.done) { %>
+                        <h3 class="small">Estado: Pendiente</h3>
+                        <% } else{ %>
+                        <h3 class="small">Estado: Entregado</h3>
+                        <% } %>
+                    </div>
+                </div>
+                <% }) %>
+                <% } else{ %>
+                <h4>Todavia no tienes trabajos</h4>
+                <% } %>
             </div>
 
 

@@ -105,7 +105,10 @@
                         <% } else {%>
                         <div class="buttons-gig">
                             <a id="btn_chatear">Chatear</a>
-                            <a id="btn_contratar">Contratar</a>
+                            <form action="/gig/hire" method="post" class="form-hire">
+                                <input type="hidden" name="gigId" value="<%= gig.id %>">
+                                <button type="submit" id="btn_contratar">Contratar</a>
+                            </form>
                         </div>
                         <% } %>
                         <div class="profile-gig pt-5 pb-2 mx-auto">

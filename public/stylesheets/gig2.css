@@ -92,3 +92,11 @@ body{
 #hire{
     display: none;
   }
+.form-hire{
+    width: fit-content;
+    margin: 0;
+}
+
+.buttons-gig{
+    display: flex;
+}

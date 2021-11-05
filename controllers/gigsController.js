@@ -86,7 +86,7 @@ const controller = {
                 res.render('gig-edit', {
                     categories: categories,
                     gig: data,
-                    error:null
+                    error: null
                 })
             })
         })
@@ -103,17 +103,20 @@ const controller = {
                 // let minPrice = parseInt(req.body.minPrice, 10)
                 // let maxPrice = parseInt(req.body.maxPrice, 10) 
                 if (req.body.maxPrice - req.body.minPrice < 0) {
-                    res.render('gig-add', {categories: data, error: 'El precio mínimo es mayor al máximo'})
+                    res.render('gig-add', {
+                        categories: data,
+                        error: 'El precio mínimo es mayor al máximo'
+                    })
                     // res.send('minimo: ' + req.body.minPrice + ' maximo: ' + req.body.maxPrice)
                 }
                 // res.send('llegue aca')
                 let cat;
-                if(!req.body.category){
+                if (!req.body.category) {
                     cat = req.body.prevCategory
-                } else{
+                } else {
                     cat = req.body.category
                 }
-                if (req.file &&  req.body.specs) {
+                if (req.file && req.body.specs) {
                     db.Gig.update({
                         gig: req.body.title,
                         description: req.body.description,
@@ -121,50 +124,50 @@ const controller = {
                         cover: '/images/gigs/' + req.file.filename,
                         priceMin: req.body.minPrice,
                         priceMax: req.body.maxPrice,
-                    },{
-                        where:{
-                            id:req.body.id
+                    }, {
+                        where: {
+                            id: req.body.id
                         }
                     }).then(results => {
                         res.redirect('/gig/show/' + req.body.id)
                     });
-                } else if(req.file && !req.body.specs){
+                } else if (req.file && !req.body.specs) {
                     db.Gig.update({
                         gig: req.body.title,
                         description: req.body.description,
                         cover: '/images/gigs/' + req.file.filename,
                         priceMin: req.body.minPrice,
                         priceMax: req.body.maxPrice,
-                    },{
-                        where:{
-                            id:req.body.id
+                    }, {
+                        where: {
+                            id: req.body.id
                         }
                     }).then(results => {
                         res.redirect('/gig/show/' + req.body.id)
                     });
-                } else if(!req.file && req.body.specs){
+                } else if (!req.file && req.body.specs) {
                     db.Gig.update({
                         gig: req.body.title,
                         description: req.body.description,
                         specs: req.body.specs,
                         priceMin: req.body.minPrice,
                         priceMax: req.body.maxPrice,
-                    },{
-                        where:{
-                            id:req.body.id
+                    }, {
+                        where: {
+                            id: req.body.id
                         }
                     }).then(results => {
                         res.redirect('/gig/show/' + req.body.id)
                     });
-                } else{
+                } else {
                     db.Gig.update({
                         gig: req.body.title,
                         description: req.body.description,
                         priceMin: req.body.minPrice,
                         priceMax: req.body.maxPrice,
-                    },{
-                        where:{
-                            id:req.body.id
+                    }, {
+                        where: {
+                            id: req.body.id
                         }
                     }).then(results => {
                         res.redirect('/gig/show/' + req.body.id)
@@ -173,19 +176,57 @@ const controller = {
             })
     },
     myGigs: (req, res) => {
-        db.Category.findAll().then(data => {
-            res.render('myGigs', {
-                categories: data
+        if (req.session) {
+            db.Category.findAll().then(categories => {
+                db.PendingGig.findAll({
+                        where: {
+                            freelancerId: req.session.user.id
+                        }
+                    })
+                    .then(pendingGigs => {
+                        db.PendingGig.findAll({
+                            where: {
+                                employerId: req.session.user.id
+                            }
+                        }).then(hires => {
+                            res.render('myGigs', {
+                                categories: categories,
+                                pendingGigs: pendingGigs,
+                                hires: hires
+                            })
+                        })
+                    })
             })
-        })
+        } else {
+            res.redirect('/')
+        }
     },
     comment: (req, res) => {
         db.Comment.create({
-            comment: req.body.comment,
-            userId: req.session.user.id,
-            gigId: req.body.id
-        })
-        .then(() => res.redirect('/gig/show/'+req.body.id))
+                comment: req.body.comment,
+                userId: req.session.user.id,
+                gigId: req.body.id
+            })
+            .then(() => res.redirect('/gig/show/' + req.body.id))
+    },
+    hire: (req, res) => {
+        db.Gig.findByPk(req.body.gigId)
+            .then((gig) => {
+                db.PendingGig.create({
+                    gig: gig.gig,
+                    description: gig.description,
+                    specs: gig.specs,
+                    cover: gig.cover,
+                    priceMin: gig.priceMin,
+                    priceMax: gig.priceMax,
+                    categoryId: gig.categoryId,
+                    done: false,
+                    freelancerId: gig.freelancerId,
+                    employerId: req.session.user.id
+                }).then(result => {
+                    res.redirect('/gig/myGigs')
+                })
+            })
     }
 }
 
