@@ -13,7 +13,7 @@
           <ul class="uk-nav uk-dropdown-nav">
             <% categories.forEach(category => { %>
             <li>
-              <a href="/categories/<%= category.id %> "
+              <a href="/categories/<%= category.id-1 %> "
                 ><%= category.category %>
               </a>
             </li>
@@ -58,7 +58,9 @@
           </li>
 
           <li>
-            <a href="/profile/id/<%= myUser.id %>"> <i class="bx bx-user"></i>Profile</a>
+            <a href="/profile/id/<%= myUser.id %>">
+              <i class="bx bx-user"></i>Profile</a
+            >
           </li>
           <li>
             <a href="#">
