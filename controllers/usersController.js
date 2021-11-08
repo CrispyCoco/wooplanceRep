@@ -11,7 +11,7 @@ const controller = {
         },
         {
           association: "myGigs",
-        },
+        }
       ],
     }).then((user) => {
       db.Category.findAll().then((categories) => {

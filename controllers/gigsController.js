@@ -227,6 +227,17 @@ const controller = {
                     res.redirect('/gig/myGigs')
                 })
             })
+    },
+    done: (req, res) => {
+        db.PendingGig.update({
+            done: true,
+        },{
+            where:{
+                id: req.body.id,
+            }
+        }).then((data) => {
+            res.redirect('/gig/myGigs')
+        })
     }
 }
 

@@ -25,4 +25,5 @@ router.post("/edit", upload.single('img'), controller.update);
 router.get("/myGigs", controller.myGigs);
 router.post('/comment', controller.comment);
 router.post('/hire', controller.hire);
+router.post('/done', controller.done);
 module.exports = router;
