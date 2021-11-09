@@ -32,7 +32,8 @@ const controller = {
     .then(gigs => {
       db.Category.findAll()
       .then(categories => {
-        res.render("categories",{category: categories[req.params.id], results: gigs, categories: categories});
+
+        res.render("categories",{category: categories[req.params.id -1], results: gigs, categories: categories});
       })
     })
   },
