@@ -24,11 +24,11 @@
                             AR$ <%= gig.priceMin %> - AR$<%= gig.priceMax %> </h3>
                         <% if (!gig.done) { %>
                             <form action="/gig/done" method="post" class="form-hire">
-                                <input type="hidden" name="gigId" value="<%= gig.id %>">
+                                <input type="hidden" name="id" value="<%= gig.id %>">
                                 <button type="submit" id="btn_contratar">Entregar</a>
                             </form>
                         <% } else{ %>
-                            <form action="/gig/myGigs" method="get" class="form-hire">
+                            <form action="" method="get" class="form-hire">
                                 <button type="disabled" id="btn_chatear">Entregado</a>
                             </form>
                         <% } %>
