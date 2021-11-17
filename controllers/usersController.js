@@ -149,19 +149,26 @@ const controller = {
           },
         },
       }).then((user) => {
-        if (!user || bcrypt.compareSync(user.password, req.body.password)) {
+        if (!user) {
           res.render("login", {
-            error: "El mail o la contraseña son incorrectos",
+            error: "El mail es incorrecto",
             categories: categories
           });
         }
-        req.session.user = user;
-        if (req.body.remember) {
-          res.cookie("userId", user.id, {
-            maxAge: 1000 * 60 * 5,
+        if (bcrypt.compareSync(user.password, req.body.password)) {
+          req.session.user = user;
+          if (req.body.remember) {
+            res.cookie("userId", user.id, {
+              maxAge: 1000 * 60 * 5,
+            });
+          }
+          res.redirect("/");
+        } else{
+          res.render("login", {
+            error: "La contraseña es incorrecta",
+            categories: categories
           });
         }
-        res.redirect("/");
       });
     })
   },
